@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="吴非的个人简历，包括详细的教育经历、工作经验及联系方式。">
+  <meta name="keywords" content="吴非, 个人简历, 数字验证, 教育经历, 工作经验">
+  <title>吴非 - 个人简历</title>
+  
+  <!-- 引入 Google 字体 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
+  
+  <!-- 内嵌 CSS 样式 -->
+  <style>
+    /* CSS变量设置 */
+    :root {
+      --bg-color: #f5f5f5;
+      --text-color: #333;
+      --header-bg: #007acc;
+      --footer-bg: #333;
+      --container-bg: #fff;
+      --link-color: #007acc;
+      --accent-color: #ffdd57;
+    }
+    /* 暗黑模式覆盖变量 */
+    .dark-mode {
+      --bg-color: #121212;
+      --text-color: #e0e0e0;
+      --header-bg: #1f1f1f;
+      --footer-bg: #1f1f1f;
+      --container-bg: #1e1e1e;
+      --link-color: #bb86fc;
+      --accent-color: #03dac6;
+    }
+    
+    /* 全局基础设置 */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Noto Sans SC', sans-serif;
+      line-height: 1.6;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+    }
+    
+    /* 页面整体容器 */
+    .container {
+      max-width: 960px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: var(--container-bg);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    
+    /* 页眉与导航 */
+    header {
+      background: var(--header-bg);
+      color: #fff;
+      padding: 20px 10px;
+      text-align: center;
+    }
+    header h1 {
+      margin-bottom: 10px;
+      font-size: 2em;
+    }
+    nav.navbar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      position: sticky;
+      top: 0;
+      background: var(--header-bg);
+      padding: 10px 0;
+      z-index: 100;
+    }
+    nav.navbar a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    nav.navbar a:hover {
+      color: var(--accent-color);
+    }
+    nav.navbar button {
+      background: transparent;
+      border: none;
+      font-size: 1.2em;
+      cursor: pointer;
+      color: #fff;
+      transition: color 0.3s;
+    }
+    nav.navbar button:hover {
+      color: var(--accent-color);
+    }
+    
+    /* 主要内容区域 */
+    main section {
+      margin-bottom: 40px;
+    }
+    main section h2 {
+      border-bottom: 2px solid var(--header-bg);
+      padding-bottom: 5px;
+      margin-bottom: 15px;
+      font-size: 1.5em;
+    }
+    main p, main li {
+      margin-bottom: 10px;
+      font-size: 1em;
+    }
+    article {
+      margin-bottom: 20px;
+    }
+    article h3 {
+      color: var(--header-bg);
+      margin-bottom: 8px;
+      font-size: 1.2em;
+    }
+    
+    /* 页脚区域 */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: var(--footer-bg);
+      color: #fff;
+    }
+    footer button {
+      background: transparent;
+      border: none;
+      color: var(--link-color);
+      font-weight: bold;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+    footer button:hover {
+      color: var(--accent-color);
+    }
+    
+    /* 响应式设计 */
+    @media (max-width: 600px) {
+      .container {
+        padding: 10px;
+        margin: 10px;
+      }
+      header, footer {
+        padding: 15px;
+      }
+      nav.navbar {
+        flex-direction: column;
+        gap: 10px;
+      }
+      main section h2 {
+        font-size: 1.3em;
+      }
+      article h3 {
+        font-size: 1.1em;
+      }
+    }
+  </style>
+  
+  <!-- 结构化数据 -->
+  <script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Person",
+    "name": "吴非",
+    "jobTitle": "高级数字验证经理",
+    "email": "xeroncn@hotmail.com",
+    "telephone": "+86 l58OlOlO38O",
+    "url": "https://odingo.github.io/",
+    "birthDate": "1982-06",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "北京",
+      "addressCountry": "China"
+    }
+  }
+  </script>
+</head>
+<body>
+  <!-- 页眉及导航 -->
+  <header>
+    <h1>吴非的个人简历</h1>
+    <nav class="navbar">
+      <a href="#profile">基本信息</a>
+      <a href="#education">教育经历</a>
+      <a href="#experience">工作经历</a>
+      <a href="#contact">联系方式</a>
+      <button id="toggle-mode" aria-label="切换暗黑模式">🌙</button>
+    </nav>
+  </header>
+  
+  <!-- 主要内容区 -->
+  <main class="container">
+    <!-- 基本信息 -->
+    <section id="profile">
+      <h2>基本信息</h2>
+      <p>姓名：吴非</p>
+      <p>出生日期：1982年6月</p>
+      <p>居住地：北京</p>
+      <p>邮箱：<a href="mailto:xeroncn@hotmail.com" style="color: var(--link-color);">xeroncn@hotmail.com</a></p>
+      <p>电话：+86 l58OlOlO38O（微信）</p>
+    </section>
+    
+    <!-- 教育经历 -->
+    <section id="education">
+      <h2>教育经历</h2>
+      <ul>
+        <li>南开大学，微电子系，硕士 - 集成电路设计 （2006 - 2009）</li>
+        <li>南开大学，微电子系，本科 - 微电子专业 （1999 - 2003）</li>
+      </ul>
+    </section>
+    
+    <!-- 工作经历 -->
+    <section id="experience">
+      <h2>工作经历</h2>
+      <article>
+        <h3>牧野微电子 - 高级数字验证经理 (2023 至今)</h3>
+        <p>建立基于 UVM 的 SoC 模拟验证环境，参与 FPGA 与 AMS 混合信号仿真集成。负责开发模拟、回归及寄存器维护脚本（Python），管理团队并协调跨区域工作。</p>
+      </article>
+      <article>
+        <h3>Zvision Technology - 高级数字验证经理 (2022 - 2023)</h3>
+        <p>建立 SoC 模拟验证环境，维护 FPGA 模拟环境，开发验证脚本，推广验证方法至算法和软件部门。</p>
+      </article>
+      <article>
+        <h3>Analog Devices Inc. - 数字验证经理 (2015 - 2022)</h3>
+        <p>负责音频子系统设计与 SoC 验证环境的搭建。搭建 IP 数据库、带领跨国团队验证多款芯片及 IP，并使用硬件加速技术提升验证效率。</p>
+      </article>
+      <article>
+        <h3>Greenliant Systems - 数字验证工程师 (2014 - 2015)</h3>
+        <p>基于 UVM 方法，负责 DMA 模块及企业 SSD 控制芯片项目的验证工作。</p>
+      </article>
+      <article>
+        <h3>Vimicro Microelectronics - 高级数字验证工程师 (2010 - 2014)</h3>
+        <p>负责以太网子系统及低功耗项目验证，开发 I2C 模块验证环境，并在 SNUG China 会议上分享成果。</p>
+      </article>
+      <article>
+        <h3>Raycom Technology - 数字验证工程师 (2009 - 2010)</h3>
+        <p>负责 FPGA 项目的时序分析与模块验证，参与光通信项目的验证工作（采用 OVM 方法）。</p>
+      </article>
+      <article>
+        <h3>TCMC Microelectronics - IC 测试工程师 (2003 - 2006)</h3>
+        <p>参与模拟及混合信号芯片测试，包括 PCB 设计、功能测试、性能测试以及 FPGA 测试代码开发。</p>
+      </article>
+    </section>
+    
+    <!-- 联系方式 -->
+    <section id="contact">
+      <h2>联系方式</h2>
+      <p>邮箱：<a href="mailto:xeroncn@hotmail.com" style="color: var(--link-color);">xeroncn@hotmail.com</a></p>
+      <p>电话：+86 l58OlOlO38O （微信）</p>
+    </section>
+  </main>
+  
+  <!-- 页脚 -->
+  <footer>
+    <p>&copy; 2025 吴非个人简历</p>
+    <button id="back-to-top" aria-label="返回顶部">返回顶部</button>
+  </footer>
+  
+  <!-- JavaScript：交互、暗黑模式与平滑滚动 -->
+  <script defer>
+    document.addEventListener('DOMContentLoaded', function() {
+      // 暗黑模式切换
+      const toggleModeButton = document.getElementById('toggle-mode');
+      const savedMode = localStorage.getItem('mode') || 'light';
+      const htmlElement = document.documentElement;
+      
+      function setMode(mode) {
+        if (mode === 'dark') {
+          htmlElement.classList.add('dark-mode');
+          toggleModeButton.textContent = '☀️';
+        } else {
+          htmlElement.classList.remove('dark-mode');
+          toggleModeButton.textContent = '🌙';
+        }
+        localStorage.setItem('mode', mode);
+      }
+      
+      setMode(savedMode);
+      
+      toggleModeButton.addEventListener('click', function() {
+        const currentMode = htmlElement.classList.contains('dark-mode') ? 'dark' : 'light';
+        const newMode = currentMode === 'dark' ? 'light' : 'dark';
+        setMode(newMode);
+      });
+      
+      // 平滑滚动：导航链接
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          const targetElement = document.querySelector(this.getAttribute('href'));
+          if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
+      
+      // 返回顶部按钮：平滑滚动
+      const backToTopButton = document.getElementById('back-to-top');
+      backToTopButton.addEventListener('click', function(){
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+      
+      // 自动显示/隐藏返回顶部按钮
+      function toggleBackToTop() {
+        if(window.scrollY > 300){
+          backToTopButton.style.display = 'block';
+        } else {
+          backToTopButton.style.display = 'none';
+        }
+      }
+      toggleBackToTop();
+      window.addEventListener('scroll', toggleBackToTop);
+    });
+  </script>
+</body>
+</html>
