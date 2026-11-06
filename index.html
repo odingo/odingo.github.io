@@ -30,6 +30,7 @@
       --shadow: 0 1px 3px rgba(0, 0, 0, .4), 0 10px 30px rgba(0, 0, 0, .25);
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
+    [hidden] { display: none !important; }
     html { scroll-behavior: smooth; }
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", sans-serif;
@@ -53,13 +54,19 @@
     }
     .nav-name { font-weight: 700; letter-spacing: .5px; }
     .nav-name a { color: var(--text); text-decoration: none; }
-    .nav-links { display: flex; gap: 16px; margin-left: auto; flex-wrap: wrap; }
+    .nav-links { display: flex; gap: 16px; margin-left: auto; align-items: center; flex-wrap: wrap; }
     .nav-links a, .theme-btn {
       color: var(--muted); text-decoration: none; font-size: 14px;
       background: none; border: none; cursor: pointer; font-family: inherit;
       transition: color .2s;
     }
     .nav-links a:hover, .theme-btn:hover { color: var(--accent); }
+    .lang-switch { display: flex; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+    .lang-switch button {
+      border: none; background: none; font-family: inherit; cursor: pointer;
+      font-size: 12.5px; padding: 2px 9px; color: var(--muted); transition: background .2s, color .2s;
+    }
+    .lang-switch button.active { background: var(--accent); color: #fff; }
 
     .wrap { max-width: 880px; margin: 0 auto; padding: 40px 24px 24px; }
 
@@ -78,15 +85,39 @@
     .hero .meta span:first-child::before { content: none; margin: 0; }
     .hero .desc { margin-top: 18px; max-width: 68ch; }
     .hero-actions { margin-top: 26px; display: flex; gap: 12px; flex-wrap: wrap; }
+
+    /* 联系方式（防爬虫：页面显示混淆写法，点击复制真实值） */
+    .contact { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 10px 12px; align-items: center; }
+    .c-item {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 7px 14px; border: 1px solid var(--line); border-radius: 999px;
+      background: var(--bg); color: var(--text); text-decoration: none; cursor: pointer;
+      font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 13.5px;
+      transition: border-color .2s, color .2s;
+    }
+    .c-item:hover { border-color: var(--accent); color: var(--accent); }
+    .c-item .k { font-family: inherit; color: var(--muted); font-size: 11.5px; letter-spacing: .6px; text-transform: uppercase; }
+    .c-item b { color: var(--accent); font-weight: 700; }
+    .contact .hint { color: var(--muted); font-size: 12.5px; }
+
     .btn {
       display: inline-flex; align-items: center; gap: 8px;
       padding: 10px 20px; border-radius: 10px; font-size: 15px; font-weight: 600;
       text-decoration: none; transition: transform .15s, box-shadow .15s, background .2s, color .2s;
+      font-family: inherit; cursor: pointer;
     }
     .btn:hover { transform: translateY(-2px); }
-    .btn-primary { background: var(--accent); color: #fff; box-shadow: 0 4px 14px color-mix(in srgb, var(--accent) 35%, transparent); }
+    .btn-primary { background: var(--accent); color: #fff; box-shadow: 0 4px 14px color-mix(in srgb, var(--accent) 35%, transparent); border: 1px solid transparent; }
     .btn-outline { background: var(--card); color: var(--text); border: 1px solid var(--line); }
     .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* 微信二维码 */
+    .qr-panel {
+      margin-top: 16px; padding: 16px; border: 1px dashed var(--line); border-radius: 12px;
+      background: var(--bg); display: flex; align-items: center; gap: 18px; flex-wrap: wrap;
+    }
+    .qr-panel img { width: 156px; height: 156px; border-radius: 8px; background: #fff; padding: 6px; object-fit: contain; }
+    .qr-panel .qr-tip { font-size: 14px; color: var(--muted); max-width: 30ch; }
 
     /* 区块 */
     section { margin-top: 44px; }
@@ -94,15 +125,12 @@
       display: flex; align-items: center; gap: 10px;
       font-size: 20px; font-weight: 700; margin-bottom: 18px; letter-spacing: 1px;
     }
-    .sec-title::before {
-      content: ""; width: 4px; height: 20px; border-radius: 2px; background: var(--accent);
-    }
+    .sec-title::before { content: ""; width: 4px; height: 20px; border-radius: 2px; background: var(--accent); }
 
     /* 技能标签 */
     .tags { display: flex; flex-wrap: wrap; gap: 10px; }
     .tag {
-      background: var(--tag-bg); color: var(--text);
-      border: 1px solid var(--line);
+      background: var(--tag-bg); color: var(--text); border: 1px solid var(--line);
       padding: 5px 14px; border-radius: 999px; font-size: 14px;
     }
 
@@ -122,9 +150,9 @@
       background: var(--card); border: 1px solid var(--line); border-radius: 12px;
       box-shadow: var(--shadow); padding: 24px 28px;
     }
-    .job-head { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+    .job-head { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
     .job-head .company { font-size: 18px; font-weight: 700; }
-    .job-head .company em { font-style: normal; color: var(--muted); font-weight: 600; font-size: 15px; }
+    .job-head .loc { font-style: normal; color: var(--muted); font-weight: 600; font-size: 15px; }
     .job-head .time {
       margin-left: auto; color: var(--accent); font-size: 14px; font-weight: 600;
       background: var(--accent-soft); padding: 2px 12px; border-radius: 999px; white-space: nowrap;
@@ -150,6 +178,14 @@
       padding: 26px 24px 34px; text-align: center; color: var(--muted); font-size: 13px;
     }
 
+    /* 复制提示 */
+    .toast {
+      position: fixed; left: 50%; bottom: 30px; transform: translate(-50%, 14px);
+      background: #111827; color: #fff; padding: 9px 18px; border-radius: 10px;
+      font-size: 13.5px; opacity: 0; pointer-events: none; transition: opacity .25s, transform .25s; z-index: 99;
+    }
+    .toast.show { opacity: 1; transform: translate(-50%, 0); }
+
     @media (max-width: 640px) {
       .wrap { padding: 24px 14px; }
       .hero { padding: 30px 22px; }
@@ -162,7 +198,7 @@
     /* 打印样式：单栏黑白，便于另存 PDF */
     @media print {
       body { background: #fff; color: #000; }
-      .nav, .hero-actions { display: none; }
+      .nav, .hero-actions, .qr-panel, .contact .hint, .toast { display: none; }
       .hero, .job-card, .edu-card { box-shadow: none; border: 1px solid #ccc; }
       .timeline::before, .job::before { display: none; }
       .timeline { padding-left: 0; }
@@ -176,10 +212,14 @@
     <div class="nav-inner">
       <span class="nav-name"><a href="#">吴非 Felix Wu</a></span>
       <div class="nav-links">
-        <a href="#skills">技能</a>
-        <a href="#experience">经历</a>
-        <a href="#education">教育</a>
-        <button class="theme-btn" id="theme-toggle" aria-label="切换深浅色主题">◐</button>
+        <a href="#skills" data-en="Skills">技能</a>
+        <a href="#experience" data-en="Experience">经历</a>
+        <a href="#education" data-en="Education">教育</a>
+        <div class="lang-switch">
+          <button id="lang-zh" class="active">中</button>
+          <button id="lang-en">EN</button>
+        </div>
+        <button class="theme-btn" id="theme-toggle" aria-label="Toggle theme">◐</button>
       </div>
     </div>
   </nav>
@@ -191,65 +231,82 @@
         <h1>吴非</h1>
         <span class="en">Felix Wu</span>
       </div>
-      <div class="role">数字设计经理 · 资深数字验证专家</div>
+      <div class="role" data-en="Digital Design Manager · Senior Digital Verification Expert">数字设计经理 · 资深数字验证专家</div>
       <div class="meta">
-        <span>北京</span>
+        <span data-en="Beijing">北京</span>
         <span>1982.06</span>
-        <span>20+ 年半导体行业经验</span>
+        <span data-en="20+ years in semiconductors">20+ 年半导体行业经验</span>
       </div>
-      <p class="desc">
+
+      <div class="contact">
+        <a class="c-item" id="contact-mail" title="Click to copy">
+          <span class="k">Email</span> xeroncn<b>#</b>hotmail.com
+        </a>
+        <a class="c-item" id="contact-tel" title="Click to copy">
+          <span class="k">Tel</span> +86 l58OlOlO38O
+        </a>
+        <span class="hint" data-en="# means @  ·  click to copy the real address"># 即 @ · 点击可复制真实联系方式</span>
+      </div>
+
+      <p class="desc" data-en="Long-standing digital verification experience combined with hands-on digital design work, plus a background in chip testing and chip-related software. Familiar with multiple verification methodologies, scripting languages and programming approaches, with cross-region and cross-country team management experience. Have worked on both full-digital and mixed-signal chips, across consumer and industrial product projects.">
         拥有长期的数字验证经验，同时参与数字设计工作，也有芯片测试以及芯片相关软件的工作经验。
         验证方面熟悉多种验证方法学及脚本语言和各种编程方法，有跨地区和跨国团队管理经历。
         经历过全数字芯片和混合信号芯片的设计与验证工作，也参与过消费类电子与工业类产品项目。
       </p>
+
       <div class="hero-actions">
-        <a class="btn btn-primary" href="resume.pdf" download="吴非个人简历202611.pdf">⬇ 下载简历 PDF（2026.11）</a>
+        <a class="btn btn-primary" href="resume.pdf" download="吴非个人简历202611.pdf" data-en="⬇ Download Resume (PDF)">⬇ 下载简历 PDF（2026.11）</a>
         <a class="btn btn-outline" href="https://www.linkedin.com/in/xterm/" target="_blank" rel="noopener">LinkedIn</a>
-        <a class="btn btn-outline" href="https://github.com/odingo" target="_blank" rel="noopener">GitHub</a>
+        <button class="btn btn-outline" id="qr-toggle" hidden data-en="WeChat">微信</button>
       </div>
-      <!-- 完整联系方式见简历 PDF（页面文字做防爬虫混淆处理） -->
+
+      <div class="qr-panel" id="qr-panel" hidden>
+        <img src="wechat-qr.png" alt="WeChat QR code" id="qr-img">
+        <span class="qr-tip" data-en="Scan to add me on WeChat — please mention why you are reaching out.">扫码添加我的微信，好友申请请注明来意。</span>
+      </div>
     </header>
 
     <section id="skills">
-      <h2 class="sec-title">专业技能</h2>
+      <h2 class="sec-title" data-en="Skills">专业技能</h2>
       <div class="tags">
         <span class="tag">UVM / OVM / VMM</span>
         <span class="tag">SystemVerilog</span>
-        <span class="tag">Verilog 数字设计</span>
-        <span class="tag">Python 工具链</span>
+        <span class="tag" data-en="Verilog Digital Design">Verilog 数字设计</span>
+        <span class="tag" data-en="Python Tooling">Python 工具链</span>
         <span class="tag">C / C++</span>
-        <span class="tag">Matlab 建模</span>
-        <span class="tag">FPGA 仿真</span>
-        <span class="tag">AMS 混合信号仿真</span>
-        <span class="tag">Formal（JasperGold）</span>
-        <span class="tag">Palladium 硬件加速</span>
-        <span class="tag">功能安全 FuSa</span>
-        <span class="tag">低功耗验证</span>
+        <span class="tag" data-en="Matlab Modeling">Matlab 建模</span>
+        <span class="tag" data-en="FPGA Simulation">FPGA 仿真</span>
+        <span class="tag" data-en="AMS Mixed-Signal Simulation">AMS 混合信号仿真</span>
+        <span class="tag" data-en="Formal (JasperGold)">Formal（JasperGold）</span>
+        <span class="tag" data-en="Palladium Acceleration">Palladium 硬件加速</span>
+        <span class="tag" data-en="Functional Safety (FuSa)">功能安全 FuSa</span>
+        <span class="tag" data-en="Low-Power Verification">低功耗验证</span>
         <span class="tag">AMBA AXI / AHB</span>
         <span class="tag">MIPI / I2S / I2C</span>
-        <span class="tag">以太网 10M/100M/1000M</span>
+        <span class="tag" data-en="Ethernet 10M/100M/1000M">以太网 10M/100M/1000M</span>
         <span class="tag">RISC-V / ARM</span>
         <span class="tag">Git / Perforce</span>
         <span class="tag">Jira / Confluence</span>
-        <span class="tag">团队与项目管理</span>
+        <span class="tag" data-en="Team &amp; Project Management">团队与项目管理</span>
       </div>
     </section>
 
     <section id="experience">
-      <h2 class="sec-title">工作经历</h2>
+      <h2 class="sec-title" data-en="Experience">工作经历</h2>
       <div class="timeline">
 
         <div class="job">
           <div class="job-card">
             <div class="job-head">
-              <span class="company">创晟半导体 <em>北京</em></span>
-              <span class="time">2025 – 至今</span>
+              <span class="company" data-en="Chuangsheng Semiconductor">创晟半导体</span>
+              <span class="loc" data-en="Beijing">北京</span>
+              <span class="time" data-en="2025 – Present">2025 – 至今</span>
             </div>
             <div class="job-title">Digital Design Manager</div>
             <ul>
-              <li>从 0 搭建仿真验证环境</li>
-              <li>开发所有仿真脚本、回归脚本、寄存器维护开发脚本等基础 Python 工具</li>
-              <li>在车载音频总线项目中负责部分设计工作（如 PDM）以及核心模块的验证工作</li>
+              <li data-en="Built the simulation verification environment from scratch.">从 0 搭建仿真验证环境</li>
+              <li data-en="Developed all simulation, regression and register-maintenance scripts plus base Python tooling.">开发所有仿真脚本、回归脚本、寄存器维护开发脚本等基础 Python 工具</li>
+              <li data-en="Owned part of the design work (e.g. PDM) and core module verification in an automotive audio bus project.">在车载音频总线项目中负责部分设计工作（如 PDM）以及核心模块的验证工作</li>
             </ul>
           </div>
         </div>
@@ -257,18 +314,19 @@
         <div class="job">
           <div class="job-card">
             <div class="job-head">
-              <span class="company">牧野微电子 <em>北京</em></span>
+              <span class="company" data-en="Muye Microelectronics">牧野微电子</span>
+              <span class="loc" data-en="Beijing">北京</span>
               <span class="time">2023 – 2025</span>
             </div>
             <div class="job-title">Senior Digital Verification Manager</div>
             <ul>
-              <li>从 0 搭建基于 UVM 的 SoC 仿真验证环境，开发整合 FPGA 仿真和 AMS 混合仿真流程</li>
-              <li>开发所有仿真脚本、回归脚本、寄存器维护开发脚本等基础 Python 工具</li>
-              <li>VIP 开发与评估、MIPI VIP 集成，及其他生产力工具维护开发</li>
-              <li>FuSa 相关 EDA 工具评估，功能安全机制验证流程建设</li>
-              <li>在车载毫米波雷达项目中管理和参与 Matlab 建模、数字模块验证与系统级验证</li>
-              <li>招聘面试并搭建验证团队，管理多 site 团队成员</li>
-              <li>参与管理设计团队，设计部分数字模块</li>
+              <li data-en="Built a UVM-based SoC simulation environment from scratch; integrated FPGA simulation with the AMS mixed-signal flow.">从 0 搭建基于 UVM 的 SoC 仿真验证环境，开发整合 FPGA 仿真和 AMS 混合仿真流程</li>
+              <li data-en="Developed all simulation, regression and register-maintenance scripts plus base Python tooling.">开发所有仿真脚本、回归脚本、寄存器维护开发脚本等基础 Python 工具</li>
+              <li data-en="VIP development and evaluation, MIPI VIP integration, and maintenance of other productivity tools.">VIP 开发与评估、MIPI VIP 集成，及其他生产力工具维护开发</li>
+              <li data-en="Evaluated FuSa-related EDA tools and established the verification flow for functional safety mechanisms.">FuSa 相关 EDA 工具评估，功能安全机制验证流程建设</li>
+              <li data-en="Managed and participated in Matlab modelling, digital module verification and system-level verification of an automotive millimeter-wave radar project.">在车载毫米波雷达项目中管理和参与 Matlab 建模、数字模块验证与系统级验证</li>
+              <li data-en="Interviewed candidates and built the verification team; managed members across multiple sites.">招聘面试并搭建验证团队，管理多 site 团队成员</li>
+              <li data-en="Helped manage the design team and designed several digital modules.">参与管理设计团队，设计部分数字模块</li>
             </ul>
           </div>
         </div>
@@ -276,17 +334,18 @@
         <div class="job">
           <div class="job-card">
             <div class="job-head">
-              <span class="company">一径科技 <em>北京</em></span>
+              <span class="company" data-en="Zvision Technology">一径科技</span>
+              <span class="loc" data-en="Beijing">北京</span>
               <span class="time">2022 – 2023</span>
             </div>
             <div class="job-title">Senior Digital Verification Manager</div>
             <ul>
-              <li>从 0 搭建基于 UVM 的 SoC（RISC-V）仿真验证环境，FPGA 仿真环境开发维护</li>
-              <li>开发所有仿真脚本、回归脚本、寄存器维护开发脚本等基础 Python 工具</li>
-              <li>VIP 开发与评估，EDA 工具评估，Git 数据库维护管理</li>
-              <li>在车载激光雷达项目中管理和参与模块级验证与系统级验证</li>
-              <li>招聘面试、搭建并管理本地验证团队，向算法、软件等部门推广验证方法学</li>
-              <li>参与部分设计工作</li>
+              <li data-en="Built a UVM-based SoC (RISC-V) simulation environment from scratch; developed and maintained the FPGA simulation environment.">从 0 搭建基于 UVM 的 SoC（RISC-V）仿真验证环境，FPGA 仿真环境开发维护</li>
+              <li data-en="Developed all simulation, regression and register-maintenance scripts plus base Python tooling.">开发所有仿真脚本、回归脚本、寄存器维护开发脚本等基础 Python 工具</li>
+              <li data-en="VIP development and evaluation, EDA tool evaluation, and Git repository maintenance.">VIP 开发与评估，EDA 工具评估，Git 数据库维护管理</li>
+              <li data-en="Managed and participated in module-level and system-level verification of an automotive LiDAR project.">在车载激光雷达项目中管理和参与模块级验证与系统级验证</li>
+              <li data-en="Interviewed candidates, built and managed the local verification team, and promoted verification methodology to algorithm and software teams.">招聘面试、搭建并管理本地验证团队，向算法、软件等部门推广验证方法学</li>
+              <li data-en="Contributed to some design work.">参与部分设计工作</li>
             </ul>
           </div>
         </div>
@@ -294,18 +353,19 @@
         <div class="job">
           <div class="job-card">
             <div class="job-head">
-              <span class="company">ADI（Analog Devices）<em>北京</em></span>
+              <span class="company">ADI（Analog Devices）</span>
+              <span class="loc" data-en="Beijing">北京</span>
               <span class="time">2015 – 2022</span>
             </div>
             <div class="job-title">Manager, Digital Verification Engineering</div>
             <ul>
-              <li>在某数字音频处理芯片项目中，承担音频子系统的设计与集成工作，以及该项目初版 SoC 验证环境开发（多处理器，含 ARM 与 RISC-V），支持 FPGA 平台代码的 PC 端仿真</li>
-              <li>建立并长期负责中国事业部 IP 数据库的运营、维护与推广，指导跨国团队协作进行 IP 的设计与验证</li>
-              <li>作为验证 Leader 参与公司多个芯片及 IP 的开发，管理跨国验证团队；产品方向包含能源计量、数字加解密安全算法（SHA、AES 等）</li>
-              <li>独创基于 C/C++ 的验证平台，通过开发硬件部分 C 模型，加速 DSP 芯片 Firmware 验证的速度与效率，长期用于该产品系列后续芯片开发</li>
-              <li>熟悉 Palladium 硬件加速器并用于改善项目验证，效果显著；熟悉 Formal 工具 JasperGold 并在多个项目中使用</li>
-              <li>参与光通信、电池电源管理等项目，涵盖模块级验证、系统级验证、后仿真与脚本开发</li>
-              <li>多次在公司全球技术大会及中国技术大会上发表文章并演讲；参与简历筛选与校招社招面试</li>
+              <li data-en="In a digital audio processing chip project, designed and integrated the audio subsystem and developed the project's first SoC verification environment (multi-processor, ARM and RISC-V), supporting PC-side simulation of FPGA platform code.">在某数字音频处理芯片项目中，承担音频子系统的设计与集成工作，以及该项目初版 SoC 验证环境开发（多处理器，含 ARM 与 RISC-V），支持 FPGA 平台代码的 PC 端仿真</li>
+              <li data-en="Established and long-term owned the China division IP database — operation, maintenance and promotion — guiding multinational teams in IP design and verification.">建立并长期负责中国事业部 IP 数据库的运营、维护与推广，指导跨国团队协作进行 IP 的设计与验证</li>
+              <li data-en="Acted as verification lead for multiple chips and IPs, managing a multinational verification team; products included energy metering and digital security algorithms (SHA, AES, etc.).">作为验证 Leader 参与公司多个芯片及 IP 的开发，管理跨国验证团队；产品方向包含能源计量、数字加解密安全算法（SHA、AES 等）</li>
+              <li data-en="Created a C/C++-based platform with C models of the hardware to speed up firmware verification of a DSP chip; it was reused across later chips in that product family.">独创基于 C/C++ 的验证平台，通过开发硬件部分 C 模型，加速 DSP 芯片 Firmware 验证的速度与效率，长期用于该产品系列后续芯片开发</li>
+              <li data-en="Experienced with the Palladium hardware accelerator, used it to improve verification on a project with significant results; familiar with formal tools such as JasperGold, used in multiple projects.">熟悉 Palladium 硬件加速器并用于改善项目验证，效果显著；熟悉 Formal 工具 JasperGold 并在多个项目中使用</li>
+              <li data-en="Contributed to optical communication, battery power management and other projects, covering module-level verification, system-level verification, post-simulation and script development.">参与光通信、电池电源管理等项目，涵盖模块级验证、系统级验证、后仿真与脚本开发</li>
+              <li data-en="Published papers and presented at the company's global and China technical conferences; took part in resume screening and campus/social recruitment interviews.">多次在公司全球技术大会及中国技术大会上发表文章并演讲；参与简历筛选与校招社招面试</li>
             </ul>
           </div>
         </div>
@@ -313,15 +373,16 @@
         <div class="job">
           <div class="job-card">
             <div class="job-head">
-              <span class="company">绿芯半导体 <em>北京</em></span>
+              <span class="company" data-en="Greenliant Systems">绿芯半导体</span>
+              <span class="loc" data-en="Beijing">北京</span>
               <span class="time">2014 – 2015</span>
             </div>
             <div class="job-title">Lead, Staff Digital Verification Engineer</div>
             <ul>
-              <li>仿真验证脚本开发与维护</li>
-              <li>负责多款企业级 SSD 控制器芯片的 DMA 模块级验证（UVM 方法论）</li>
-              <li>某 SSD 控制器芯片项目的验证负责人</li>
-              <li>参与招聘面试</li>
+              <li data-en="Developed and maintained simulation verification scripts.">仿真验证脚本开发与维护</li>
+              <li data-en="Owned DMA module-level verification for several enterprise SSD controller chips using UVM.">负责多款企业级 SSD 控制器芯片的 DMA 模块级验证（UVM 方法论）</li>
+              <li data-en="Verification lead for an SSD controller chip project.">某 SSD 控制器芯片项目的验证负责人</li>
+              <li data-en="Participated in recruitment interviews.">参与招聘面试</li>
             </ul>
           </div>
         </div>
@@ -329,15 +390,16 @@
         <div class="job">
           <div class="job-card">
             <div class="job-head">
-              <span class="company">中星微电子 <em>北京</em></span>
+              <span class="company" data-en="Vimicro">中星微电子</span>
+              <span class="loc" data-en="Beijing">北京</span>
               <span class="time">2010 – 2014</span>
             </div>
             <div class="job-title">Senior Digital Verification Engineer</div>
             <ul>
-              <li>独立负责某 AP 芯片及多款子产品的以太网子系统数字验证，熟悉 10M/100M/1000M 以太网协议；有限参与 USB/PCIE 子系统验证</li>
-              <li>参与并负责某芯片项目的低功耗验证，成果发表于 Synopsys 用户大会（SNUG China）</li>
-              <li>参与 ISP 芯片算法模块（Noise Reduction 等）验证、数模混合芯片音频总线（I2S）协议验证、AMBA AXI 总线功能及性能验证，涵盖模块级、系统级及后仿真</li>
-              <li>开发的 I2C 模块级验证环境被用于新员工培训课程；使用 VMM 验证方法学</li>
+              <li data-en="Independently responsible for digital verification of the Ethernet subsystem of an AP chip and several sub-products; familiar with 10M/100M/1000M Ethernet; limited involvement in USB/PCIe subsystem verification.">独立负责某 AP 芯片及多款子产品的以太网子系统数字验证，熟悉 10M/100M/1000M 以太网协议；有限参与 USB/PCIE 子系统验证</li>
+              <li data-en="Contributed to and led low-power verification of a chip project; results published at the Synopsys Users Group (SNUG China).">参与并负责某芯片项目的低功耗验证，成果发表于 Synopsys 用户大会（SNUG China）</li>
+              <li data-en="Also worked on algorithm module verification (noise reduction, etc.) in an ISP chip, audio bus (I2S) protocol verification in a mixed-signal chip, and AMBA AXI bus functional and performance verification — covering module-level, system-level and post-simulation.">参与 ISP 芯片算法模块（Noise Reduction 等）验证、数模混合芯片音频总线（I2S）协议验证、AMBA AXI 总线功能及性能验证，涵盖模块级、系统级及后仿真</li>
+              <li data-en="The I2C module-level verification environment developed was used in new-hire training courses; used VMM methodology.">开发的 I2C 模块级验证环境被用于新员工培训课程；使用 VMM 验证方法学</li>
             </ul>
           </div>
         </div>
@@ -345,13 +407,14 @@
         <div class="job">
           <div class="job-card">
             <div class="job-head">
-              <span class="company">润光泰力 <em>北京</em></span>
+              <span class="company" data-en="Raycom Technology">润光泰力</span>
+              <span class="loc" data-en="Beijing">北京</span>
               <span class="time">2009 – 2010</span>
             </div>
             <div class="job-title">Junior Digital Verification Engineer</div>
             <ul>
-              <li>在某 FPGA 项目中承担时序分析工作，主要工具为 Synplify</li>
-              <li>在某光通信项目中承担模块级验证工作，使用 OVM 验证方法学</li>
+              <li data-en="Timing analysis for an FPGA project, mainly with Synplify.">在某 FPGA 项目中承担时序分析工作，主要工具为 Synplify</li>
+              <li data-en="Module-level verification in an optical communication project using OVM.">在某光通信项目中承担模块级验证工作，使用 OVM 验证方法学</li>
             </ul>
           </div>
         </div>
@@ -359,13 +422,14 @@
         <div class="job">
           <div class="job-card">
             <div class="job-head">
-              <span class="company">中晶微电子 <em>天津</em></span>
+              <span class="company" data-en="TCMC Microelectronics">中晶微电子</span>
+              <span class="loc" data-en="Tianjin">天津</span>
               <span class="time">2003 – 2006</span>
             </div>
             <div class="job-title">IC Test Engineer</div>
             <ul>
-              <li>参与模拟芯片的测试工作，包括 PCB 绘制、功能及性能测试等</li>
-              <li>参与其他数模混合芯片的测试工作，FPGA 测试代码开发</li>
+              <li data-en="Participated in analog chip testing, including PCB layout, functional and performance testing.">参与模拟芯片的测试工作，包括 PCB 绘制、功能及性能测试等</li>
+              <li data-en="Participated in testing of other mixed-signal chips and developed FPGA test code.">参与其他数模混合芯片的测试工作，FPGA 测试代码开发</li>
             </ul>
           </div>
         </div>
@@ -374,17 +438,17 @@
     </section>
 
     <section id="education">
-      <h2 class="sec-title">教育背景</h2>
+      <h2 class="sec-title" data-en="Education">教育背景</h2>
       <div class="edu-grid">
         <div class="edu-card">
-          <div class="school">南开大学</div>
-          <div class="major">微电子科学系 · 微电子与固体电子学</div>
-          <div class="deg">硕士 · 集成电路设计（2006 – 2009）</div>
+          <div class="school" data-en="Nankai University">南开大学</div>
+          <div class="major" data-en="Dept. of Microelectronics · Microelectronics &amp; Solid-State Electronics">微电子科学系 · 微电子与固体电子学</div>
+          <div class="deg" data-en="M.S. in Integrated Circuit Design (2006 – 2009)">硕士 · 集成电路设计（2006 – 2009）</div>
         </div>
         <div class="edu-card">
-          <div class="school">南开大学</div>
-          <div class="major">微电子科学系 · 微电子学</div>
-          <div class="deg">学士（1999 – 2003）</div>
+          <div class="school" data-en="Nankai University">南开大学</div>
+          <div class="major" data-en="Dept. of Microelectronics · Microelectronics">微电子科学系 · 微电子学</div>
+          <div class="deg" data-en="B.S. (1999 – 2003)">学士（1999 – 2003）</div>
         </div>
       </div>
     </section>
@@ -392,30 +456,112 @@
   </div>
 
   <footer>
-    <p>&copy; 2026 吴非 · 简历最后更新：2026.11</p>
+    <p data-en="© 2026 Felix Wu · Last updated: Nov 2026">© 2026 吴非 · 简历最后更新：2026.11</p>
   </footer>
 
+  <div class="toast" id="toast"></div>
+
   <script>
-    // 深浅色主题：跟随系统 + 手动切换记忆
     (function () {
       var root = document.documentElement;
+      var TITLE = { zh: '吴非 Felix Wu · 个人简历', en: 'Felix Wu · Resume' };
+      var DESC = {
+        zh: '吴非（Felix Wu）个人简历 — 数字设计与验证，二十余年半导体行业经验。',
+        en: 'Resume of Felix Wu — digital design and verification, 20+ years in the semiconductor industry.'
+      };
+      var langBtns = { zh: document.getElementById('lang-zh'), en: document.getElementById('lang-en') };
+
+      // ---- 语言切换 ----
+      function setLang(lang) {
+        root.lang = lang === 'en' ? 'en' : 'zh-CN';
+        document.querySelectorAll('[data-en]').forEach(function (el) {
+          if (el.dataset.zh === undefined) el.dataset.zh = el.textContent;
+          el.textContent = lang === 'en' ? el.dataset.en : el.dataset.zh;
+        });
+        document.title = TITLE[lang] || TITLE.zh;
+        var md = document.querySelector('meta[name="description"]');
+        if (md) md.setAttribute('content', DESC[lang] || DESC.zh);
+        langBtns.zh.classList.toggle('active', lang !== 'en');
+        langBtns.en.classList.toggle('active', lang === 'en');
+        try { localStorage.setItem('lang', lang); } catch (e) {}
+      }
+      langBtns.zh.addEventListener('click', function () { setLang('zh'); });
+      langBtns.en.addEventListener('click', function () { setLang('en'); });
+
+      var savedLang = null;
+      try { savedLang = localStorage.getItem('lang'); } catch (e) {}
+      var urlLang = new URLSearchParams(location.search).get('lang');
+      var browserLang = (navigator.language || 'zh').toLowerCase().indexOf('zh') === 0 ? 'zh' : 'en';
+      setLang(urlLang === 'en' || urlLang === 'zh' ? urlLang : (savedLang || browserLang));
+
+      // ---- 深浅色主题 ----
       var btn = document.getElementById('theme-toggle');
       var stored = null;
       try { stored = localStorage.getItem('theme'); } catch (e) {}
       var preferDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-      apply(stored || (preferDark ? 'dark' : 'light'));
+      applyTheme(stored || (preferDark ? 'dark' : 'light'));
       window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function (e) {
-        try { if (!localStorage.getItem('theme')) apply(e.matches ? 'dark' : 'light'); } catch (err) {}
+        try { if (!localStorage.getItem('theme')) applyTheme(e.matches ? 'dark' : 'light'); } catch (err) {}
       });
       btn.addEventListener('click', function () {
         var next = root.classList.contains('dark') ? 'light' : 'dark';
         try { localStorage.setItem('theme', next); } catch (e) {}
-        apply(next);
+        applyTheme(next);
       });
-      function apply(mode) {
+      function applyTheme(mode) {
         root.classList.toggle('dark', mode === 'dark');
         btn.textContent = mode === 'dark' ? '☾' : '☀';
       }
+
+      // ---- 联系方式：显示混淆写法，点击复制真实值 ----
+      var toast = document.getElementById('toast');
+      var toastTimer;
+      function showToast(msg) {
+        toast.textContent = msg;
+        toast.classList.add('show');
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(function () { toast.classList.remove('show'); }, 1800);
+      }
+      function copy(text, okMsg) {
+        var done = function () { showToast(okMsg); };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(done, function () { fallbackCopy(text); done(); });
+        } else {
+          fallbackCopy(text); done();
+        }
+      }
+      function fallbackCopy(text) {
+        var ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand('copy'); } catch (e) {}
+        document.body.removeChild(ta);
+      }
+      var mail = document.getElementById('contact-mail');
+      var tel = document.getElementById('contact-tel');
+      mail.addEventListener('click', function (e) {
+        e.preventDefault();
+        copy('xeroncn' + '@' + 'hotmail.com',
+          root.lang === 'en' ? 'Email copied' : '邮箱已复制');
+      });
+      tel.addEventListener('click', function (e) {
+        e.preventDefault();
+        copy('+8615801010380',
+          root.lang === 'en' ? 'Phone number copied' : '电话已复制');
+      });
+
+      // ---- 微信二维码：只有仓库里存在 wechat-qr.png 时才显示入口 ----
+      var qrBtn = document.getElementById('qr-toggle');
+      var qrPanel = document.getElementById('qr-panel');
+      var test = new Image();
+      test.onload = function () { qrBtn.hidden = false; };
+      test.src = 'wechat-qr.png';
+      qrBtn.addEventListener('click', function () {
+        qrPanel.hidden = !qrPanel.hidden;
+      });
     })();
   </script>
 </body>
