@@ -1,108 +1,422 @@
-<html>
-  <head>
-    <title>Resume of Felix.Wu, 吴非个人简历</title>
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico?">
-  </head>
-  <body>
-    <div id='Header'><a href="https://www.linkedin.com/in/xterm/">Linkedin</a> | <a href="#ChineseVersion">中文简历</a> | <a href="new.html">Optimized this page by ChatGPT</a></div>
-    <div><pre>
-Résumé
-Name: Felix Wu 吴非
-Date of Birth: June 1982
-Location: Beijing, China
-Email: xeroncn # hotmail
-Phone: +86 l58OlOlO38O (WeChat)
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="吴非（Felix Wu）个人简历 — 数字设计与验证，二十余年半导体行业经验。">
+  <title>吴非 Felix Wu · 个人简历</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <style>
+    :root {
+      --bg: #f4f6f8;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --line: #e5e7eb;
+      --accent: #1d4ed8;
+      --accent-soft: #eff4ff;
+      --tag-bg: #eef2f7;
+      --shadow: 0 1px 3px rgba(16, 24, 40, .08), 0 8px 24px rgba(16, 24, 40, .06);
+    }
+    html.dark {
+      --bg: #0f1520;
+      --card: #171e2b;
+      --text: #e6e9ef;
+      --muted: #98a2b3;
+      --line: #2a3345;
+      --accent: #7aa2ff;
+      --accent-soft: #1c2740;
+      --tag-bg: #212b3d;
+      --shadow: 0 1px 3px rgba(0, 0, 0, .4), 0 10px 30px rgba(0, 0, 0, .25);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+      transition: background .25s, color .25s;
+    }
 
-Education
-Nankai University, Department of Microelectronics
-Master's in Microelectronics and Solid-State Electronics, Integrated Circuit Design (2006 - 2009)
-Nankai University, Department of Microelectronics
-Bachelor's in Microelectronics (1999 - 2003)
+    /* 顶部导航 */
+    .nav {
+      position: sticky; top: 0; z-index: 50;
+      backdrop-filter: blur(10px);
+      background: color-mix(in srgb, var(--bg) 82%, transparent);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-inner {
+      max-width: 880px; margin: 0 auto; padding: 12px 24px;
+      display: flex; align-items: center; gap: 18px; flex-wrap: wrap;
+    }
+    .nav-name { font-weight: 700; letter-spacing: .5px; }
+    .nav-name a { color: var(--text); text-decoration: none; }
+    .nav-links { display: flex; gap: 16px; margin-left: auto; flex-wrap: wrap; }
+    .nav-links a, .theme-btn {
+      color: var(--muted); text-decoration: none; font-size: 14px;
+      background: none; border: none; cursor: pointer; font-family: inherit;
+      transition: color .2s;
+    }
+    .nav-links a:hover, .theme-btn:hover { color: var(--accent); }
 
-Self-Evaluation
-I have some chip testing experience, some digital design experience, and extensive digital verification experience.
-I am familiar with various verification methodologies and script development.
-I have experience with fully digital chips and mixed-signal chips, having participated in projects for consumer electronics and industrial products.
-I have many years of experience in verification team management
-There are still many unknown areas, and I am on a continuous learning path. I consider myself diligent and hardworking, striving to learn throughout my life.
+    .wrap { max-width: 880px; margin: 0 auto; padding: 40px 24px 24px; }
 
-Work Experience
+    /* 头部名片 */
+    .hero {
+      background: var(--card); border: 1px solid var(--line);
+      border-radius: 16px; box-shadow: var(--shadow);
+      padding: 44px 40px 36px;
+    }
+    .hero-top { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
+    .hero h1 { font-size: 34px; letter-spacing: 1px; }
+    .hero .en { color: var(--muted); font-size: 18px; font-weight: 600; }
+    .hero .role { margin-top: 6px; color: var(--accent); font-weight: 600; font-size: 17px; }
+    .hero .meta { margin-top: 14px; color: var(--muted); font-size: 15px; display: flex; gap: 8px 22px; flex-wrap: wrap; }
+    .hero .meta span::before { content: "·"; margin-right: 8px; color: var(--line); }
+    .hero .meta span:first-child::before { content: none; margin: 0; }
+    .hero .desc { margin-top: 18px; max-width: 68ch; }
+    .hero-actions { margin-top: 26px; display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 20px; border-radius: 10px; font-size: 15px; font-weight: 600;
+      text-decoration: none; transition: transform .15s, box-shadow .15s, background .2s, color .2s;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { background: var(--accent); color: #fff; box-shadow: 0 4px 14px color-mix(in srgb, var(--accent) 35%, transparent); }
+    .btn-outline { background: var(--card); color: var(--text); border: 1px solid var(--line); }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
 
-2023 - Present, Beijing, Muye Microelectronics (牧野微电子), Senior Digital Verification Manager
+    /* 区块 */
+    section { margin-top: 44px; }
+    .sec-title {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 20px; font-weight: 700; margin-bottom: 18px; letter-spacing: 1px;
+    }
+    .sec-title::before {
+      content: ""; width: 4px; height: 20px; border-radius: 2px; background: var(--accent);
+    }
 
-    Established a UVM-based SoC simulation verification environment from scratch, participating in the integration of FPGA simulation and AMS mixed-signal simulation.
-    Developed all simulation scripts, regression scripts, and register maintenance development scripts using Python.
-    Developed and evaluated VIPs, maintained and developed other productivity tools.
-    Evaluated FuSa-related EDA tools and verified functional safety mechanisms.
-    Conducted recruitment interviews and built a verification team, managing team members across multiple sites.
-    Managed and participated in Matlab modeling, module-level verification, and system-level verification for a vehicle millimeter-wave radar (MMIC) project.
-    Participated in managing the design team and contributed to some digital module designs.
+    /* 技能标签 */
+    .tags { display: flex; flex-wrap: wrap; gap: 10px; }
+    .tag {
+      background: var(--tag-bg); color: var(--text);
+      border: 1px solid var(--line);
+      padding: 5px 14px; border-radius: 999px; font-size: 14px;
+    }
 
-2022 - 2023, Beijing, Zvision Technology (一径科技), Senior Digital Verification Manager
+    /* 时间线 */
+    .timeline { position: relative; padding-left: 26px; }
+    .timeline::before {
+      content: ""; position: absolute; left: 7px; top: 8px; bottom: 8px;
+      width: 2px; background: var(--line); border-radius: 1px;
+    }
+    .job { position: relative; margin-bottom: 26px; }
+    .job::before {
+      content: ""; position: absolute; left: -26px; top: 9px;
+      width: 12px; height: 12px; border-radius: 50%;
+      background: var(--bg); border: 3px solid var(--accent);
+    }
+    .job-card {
+      background: var(--card); border: 1px solid var(--line); border-radius: 12px;
+      box-shadow: var(--shadow); padding: 24px 28px;
+    }
+    .job-head { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+    .job-head .company { font-size: 18px; font-weight: 700; }
+    .job-head .company em { font-style: normal; color: var(--muted); font-weight: 600; font-size: 15px; }
+    .job-head .time {
+      margin-left: auto; color: var(--accent); font-size: 14px; font-weight: 600;
+      background: var(--accent-soft); padding: 2px 12px; border-radius: 999px; white-space: nowrap;
+    }
+    .job-title { color: var(--muted); font-size: 15px; margin-top: 2px; }
+    .job ul { margin: 14px 0 0 18px; color: var(--text); }
+    .job li { margin-bottom: 7px; font-size: 15px; }
+    .job li::marker { color: var(--accent); }
 
-    Established a UVM-based SoC simulation verification environment from scratch, and maintained FPGA simulation environment.
-    Developed all simulation scripts, regression scripts, and register maintenance development scripts using Python.
-    Developed and evaluated VIPs, evaluated EDA tools, maintained and managed the Git databases, and developed other productivity tools.
-    Conducted recruitment interviews and built a local verification team, promoting verification methodologies to other departments such as algorithms and software.
-    Managed and participated in module-level and system-level verification for a vehicle laser radar (Lidar) project.
-    Contributed to some design work.
+    /* 教育 */
+    .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .edu-card {
+      background: var(--card); border: 1px solid var(--line); border-radius: 12px;
+      box-shadow: var(--shadow); padding: 22px 26px;
+    }
+    .edu-card .school { font-weight: 700; font-size: 17px; }
+    .edu-card .major { color: var(--muted); font-size: 15px; margin-top: 4px; }
+    .edu-card .deg { color: var(--accent); font-size: 14px; font-weight: 600; margin-top: 8px; }
 
-2015 - 2022, Beijing, Analog Devices Inc., Manager, Digital Verification Engineer
+    /* 页脚 */
+    footer {
+      margin-top: 56px; border-top: 1px solid var(--line);
+      padding: 26px 24px 34px; text-align: center; color: var(--muted); font-size: 13px;
+    }
 
-    Responsible for the design and integration of the audio subsystem in a digital audio processing chip project, as well as the initial SoC verification environment development for the project, supporting PC-side simulation of FPGA platform code.
-    Established and was responsible for the operation, maintenance, and promotion of the IP database in the China division, guiding multinational team collaboration in IP design and verification.
-    Participated as a verification lead in the development of multiple chips and IPs within the company, collaborating with multinational teams on products including energy metering, digital encryption/decryption algorithms (SHA, AES, etc.).
-    Developed a platform based on C/C++ to accelerate the speed and efficiency of firmware verification for a DSP chip, which has been used in subsequent chip developments in that product series.
-    Familiar with Palladium hardware accelerators and used them to improve verification work on certain projects with significant results.
-    Experienced with formal verification tools like JasperGold and used them in multiple projects.
-    Participated in various projects including optical communication, Battery management system (BMS), etc., covering module-level verification, system-level verification, post-simulation, and script development.
-    Presented papers and speeches at the company's global and China technology conferences multiple times.
-    Involved in recruitment interviews.
+    @media (max-width: 640px) {
+      .wrap { padding: 24px 14px; }
+      .hero { padding: 30px 22px; }
+      .hero h1 { font-size: 27px; }
+      .edu-grid { grid-template-columns: 1fr; }
+      .job-card { padding: 20px 18px; }
+      .job-head .time { margin-left: 0; }
+    }
 
-2014 - 2015, Beijing, Greenliant Systems (绿芯半导体系统科技), Lead, Staff Digital Verification Engineer
+    /* 打印样式：单栏黑白，便于另存 PDF */
+    @media print {
+      body { background: #fff; color: #000; }
+      .nav, .hero-actions { display: none; }
+      .hero, .job-card, .edu-card { box-shadow: none; border: 1px solid #ccc; }
+      .timeline::before, .job::before { display: none; }
+      .timeline { padding-left: 0; }
+      .wrap { padding: 0; max-width: 100%; }
+    }
+  </style>
+</head>
+<body>
 
-    Developed and maintained simulation verification scripts.
-    Responsible for DMA module-level verification for several enterprise SSD controller chips, using UVM verification methodology.
-    Verification lead for an SSD controller chip project.
-    Participated in recruitment interviews.
-
-2010 - 2014, Beijing, Vimicro Microelectronics (中星微电子), Senior Digital Verification Engineer
-
-    Independently responsible for digital verification of the Ethernet subsystem for an AP chip and several sub-products, familiar with 10M/100M/1000M Ethernet protocols, with limited involvement in USB subsystem verification for the product.
-    Participated in and was responsible for low-power verification of a chip project, publishing results at the Synopsys Users Group Conference (SNUG China).
-    Participated in other projects including algorithm module verification (Noise Reduction, etc.) in an ISP chip, audio (I2S) protocol verification in a mixed-signal chip, and AMBA AXI bus functional and performance verification, covering module-level, system-level, and post-simulation.
-    Developed a module-level verification environment (I2C) used in training courses for new employees.
-    Used VMM verification methodology.
-
-2009 - 2010, Beijing, Raycom Technology (润光泰力), Junior Digital Verification Engineer
-
-    Conducted timing analysis for an FPGA project, primarily using Synplify.
-    Responsible for module-level verification for an optical communication project, using OVM verification methodology.
-
-2003 - 2006, Tianjin, TCMC Microelectronics (中晶微电子), IC Test Engineer
-
-    Participated in testing of analog chips, including PCB design, functional and performance testing, etc.
-    Participated in testing of other mixed-signal chips, developing FPGA test code.
-    </pre></div>
-    <div><a href='#Header'>↑↑↑ Back to TOP ↑↑↑</a></div>
-    <div>
-      <iframe width="1000" height="1200" src="吴非个人简历202504.pdf" id="ChineseVersion"></iframe>
+  <nav class="nav">
+    <div class="nav-inner">
+      <span class="nav-name"><a href="#">吴非 Felix Wu</a></span>
+      <div class="nav-links">
+        <a href="#skills">技能</a>
+        <a href="#experience">经历</a>
+        <a href="#education">教育</a>
+        <button class="theme-btn" id="theme-toggle" aria-label="切换深浅色主题">◐</button>
+      </div>
     </div>
-    <div>2025.04 <a href='#Header'>↑↑↑ Back to TOP ↑↑↑</a></div>
-    <div align='center'><a href='https://www.free-website-hit-counter.com'><img src='https://www.free-website-hit-counter.com/zc.php?d=6&id=8215&s=10' border='0' alt='Free Website Hit Counter'></a><br /><small><a href='https://www.free-website-hit-counter.com' title="Free Website Hit Counter">Free website hit counter</a></small></div>
-    <a title="Web Analytics" href="https://clicky.com/101472818"><img alt="Clicky" src="//static.getclicky.com/media/links/badge.gif" border="0" /></a>
-    <script async data-id="101472818" src="//static.getclicky.com/js"></script>
-    <!--不算子网站访客统计-->
-    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <!-- pv的方式，单个用户连续点击n篇文章，记录n次访问量 -->
-    <div align="center">
-    	<span id="busuanzi_container_site_pv" style="font-family:Consolas;color:Silver;font-size:12px;">
-    		View:<span id="busuanzi_value_site_pv" style="font-family:Consolas;color:Silver;font-size:12px;"></span>
-    	</span>
-    	<!-- uv的方式，单个用户连续点击n篇文章，只记录1次访客数 -->
-    	<span id="busuanzi_container_site_uv" style="font-family:Consolas;color:Silver;font-size:12px;">
-    		User:<span id="busuanzi_value_site_uv" style="font-family:Consolas;color:Silver;font-size:12px;"></span>
-    	</span>
-    </div>
-  </body>
+  </nav>
+
+  <div class="wrap">
+
+    <header class="hero" id="profile">
+      <div class="hero-top">
+        <h1>吴非</h1>
+        <span class="en">Felix Wu</span>
+      </div>
+      <div class="role">数字设计经理 · 资深数字验证专家</div>
+      <div class="meta">
+        <span>北京</span>
+        <span>1982.06</span>
+        <span>20+ 年半导体行业经验</span>
+      </div>
+      <p class="desc">
+        拥有长期的数字验证经验，同时参与数字设计工作，也有芯片测试以及芯片相关软件的工作经验。
+        验证方面熟悉多种验证方法学及脚本语言和各种编程方法，有跨地区和跨国团队管理经历。
+        经历过全数字芯片和混合信号芯片的设计与验证工作，也参与过消费类电子与工业类产品项目。
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="resume.pdf" download="吴非个人简历202611.pdf">⬇ 下载简历 PDF（2026.11）</a>
+        <a class="btn btn-outline" href="https://www.linkedin.com/in/xterm/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn btn-outline" href="https://github.com/odingo" target="_blank" rel="noopener">GitHub</a>
+      </div>
+      <!-- 完整联系方式见简历 PDF（页面文字做防爬虫混淆处理） -->
+    </header>
+
+    <section id="skills">
+      <h2 class="sec-title">专业技能</h2>
+      <div class="tags">
+        <span class="tag">UVM / OVM / VMM</span>
+        <span class="tag">SystemVerilog</span>
+        <span class="tag">Verilog 数字设计</span>
+        <span class="tag">Python 工具链</span>
+        <span class="tag">C / C++</span>
+        <span class="tag">Matlab 建模</span>
+        <span class="tag">FPGA 仿真</span>
+        <span class="tag">AMS 混合信号仿真</span>
+        <span class="tag">Formal（JasperGold）</span>
+        <span class="tag">Palladium 硬件加速</span>
+        <span class="tag">功能安全 FuSa</span>
+        <span class="tag">低功耗验证</span>
+        <span class="tag">AMBA AXI / AHB</span>
+        <span class="tag">MIPI / I2S / I2C</span>
+        <span class="tag">以太网 10M/100M/1000M</span>
+        <span class="tag">RISC-V / ARM</span>
+        <span class="tag">Git / Perforce</span>
+        <span class="tag">Jira / Confluence</span>
+        <span class="tag">团队与项目管理</span>
+      </div>
+    </section>
+
+    <section id="experience">
+      <h2 class="sec-title">工作经历</h2>
+      <div class="timeline">
+
+        <div class="job">
+          <div class="job-card">
+            <div class="job-head">
+              <span class="company">创晟半导体 <em>北京</em></span>
+              <span class="time">2025 – 至今</span>
+            </div>
+            <div class="job-title">Digital Design Manager</div>
+            <ul>
+              <li>从 0 搭建仿真验证环境</li>
+              <li>开发所有仿真脚本、回归脚本、寄存器维护开发脚本等基础 Python 工具</li>
+              <li>在车载音频总线项目中负责部分设计工作（如 PDM）以及核心模块的验证工作</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="job">
+          <div class="job-card">
+            <div class="job-head">
+              <span class="company">牧野微电子 <em>北京</em></span>
+              <span class="time">2023 – 2025</span>
+            </div>
+            <div class="job-title">Senior Digital Verification Manager</div>
+            <ul>
+              <li>从 0 搭建基于 UVM 的 SoC 仿真验证环境，开发整合 FPGA 仿真和 AMS 混合仿真流程</li>
+              <li>开发所有仿真脚本、回归脚本、寄存器维护开发脚本等基础 Python 工具</li>
+              <li>VIP 开发与评估、MIPI VIP 集成，及其他生产力工具维护开发</li>
+              <li>FuSa 相关 EDA 工具评估，功能安全机制验证流程建设</li>
+              <li>在车载毫米波雷达项目中管理和参与 Matlab 建模、数字模块验证与系统级验证</li>
+              <li>招聘面试并搭建验证团队，管理多 site 团队成员</li>
+              <li>参与管理设计团队，设计部分数字模块</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="job">
+          <div class="job-card">
+            <div class="job-head">
+              <span class="company">一径科技 <em>北京</em></span>
+              <span class="time">2022 – 2023</span>
+            </div>
+            <div class="job-title">Senior Digital Verification Manager</div>
+            <ul>
+              <li>从 0 搭建基于 UVM 的 SoC（RISC-V）仿真验证环境，FPGA 仿真环境开发维护</li>
+              <li>开发所有仿真脚本、回归脚本、寄存器维护开发脚本等基础 Python 工具</li>
+              <li>VIP 开发与评估，EDA 工具评估，Git 数据库维护管理</li>
+              <li>在车载激光雷达项目中管理和参与模块级验证与系统级验证</li>
+              <li>招聘面试、搭建并管理本地验证团队，向算法、软件等部门推广验证方法学</li>
+              <li>参与部分设计工作</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="job">
+          <div class="job-card">
+            <div class="job-head">
+              <span class="company">ADI（Analog Devices）<em>北京</em></span>
+              <span class="time">2015 – 2022</span>
+            </div>
+            <div class="job-title">Manager, Digital Verification Engineering</div>
+            <ul>
+              <li>在某数字音频处理芯片项目中，承担音频子系统的设计与集成工作，以及该项目初版 SoC 验证环境开发（多处理器，含 ARM 与 RISC-V），支持 FPGA 平台代码的 PC 端仿真</li>
+              <li>建立并长期负责中国事业部 IP 数据库的运营、维护与推广，指导跨国团队协作进行 IP 的设计与验证</li>
+              <li>作为验证 Leader 参与公司多个芯片及 IP 的开发，管理跨国验证团队；产品方向包含能源计量、数字加解密安全算法（SHA、AES 等）</li>
+              <li>独创基于 C/C++ 的验证平台，通过开发硬件部分 C 模型，加速 DSP 芯片 Firmware 验证的速度与效率，长期用于该产品系列后续芯片开发</li>
+              <li>熟悉 Palladium 硬件加速器并用于改善项目验证，效果显著；熟悉 Formal 工具 JasperGold 并在多个项目中使用</li>
+              <li>参与光通信、电池电源管理等项目，涵盖模块级验证、系统级验证、后仿真与脚本开发</li>
+              <li>多次在公司全球技术大会及中国技术大会上发表文章并演讲；参与简历筛选与校招社招面试</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="job">
+          <div class="job-card">
+            <div class="job-head">
+              <span class="company">绿芯半导体 <em>北京</em></span>
+              <span class="time">2014 – 2015</span>
+            </div>
+            <div class="job-title">Lead, Staff Digital Verification Engineer</div>
+            <ul>
+              <li>仿真验证脚本开发与维护</li>
+              <li>负责多款企业级 SSD 控制器芯片的 DMA 模块级验证（UVM 方法论）</li>
+              <li>某 SSD 控制器芯片项目的验证负责人</li>
+              <li>参与招聘面试</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="job">
+          <div class="job-card">
+            <div class="job-head">
+              <span class="company">中星微电子 <em>北京</em></span>
+              <span class="time">2010 – 2014</span>
+            </div>
+            <div class="job-title">Senior Digital Verification Engineer</div>
+            <ul>
+              <li>独立负责某 AP 芯片及多款子产品的以太网子系统数字验证，熟悉 10M/100M/1000M 以太网协议；有限参与 USB/PCIE 子系统验证</li>
+              <li>参与并负责某芯片项目的低功耗验证，成果发表于 Synopsys 用户大会（SNUG China）</li>
+              <li>参与 ISP 芯片算法模块（Noise Reduction 等）验证、数模混合芯片音频总线（I2S）协议验证、AMBA AXI 总线功能及性能验证，涵盖模块级、系统级及后仿真</li>
+              <li>开发的 I2C 模块级验证环境被用于新员工培训课程；使用 VMM 验证方法学</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="job">
+          <div class="job-card">
+            <div class="job-head">
+              <span class="company">润光泰力 <em>北京</em></span>
+              <span class="time">2009 – 2010</span>
+            </div>
+            <div class="job-title">Junior Digital Verification Engineer</div>
+            <ul>
+              <li>在某 FPGA 项目中承担时序分析工作，主要工具为 Synplify</li>
+              <li>在某光通信项目中承担模块级验证工作，使用 OVM 验证方法学</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="job">
+          <div class="job-card">
+            <div class="job-head">
+              <span class="company">中晶微电子 <em>天津</em></span>
+              <span class="time">2003 – 2006</span>
+            </div>
+            <div class="job-title">IC Test Engineer</div>
+            <ul>
+              <li>参与模拟芯片的测试工作，包括 PCB 绘制、功能及性能测试等</li>
+              <li>参与其他数模混合芯片的测试工作，FPGA 测试代码开发</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="education">
+      <h2 class="sec-title">教育背景</h2>
+      <div class="edu-grid">
+        <div class="edu-card">
+          <div class="school">南开大学</div>
+          <div class="major">微电子科学系 · 微电子与固体电子学</div>
+          <div class="deg">硕士 · 集成电路设计（2006 – 2009）</div>
+        </div>
+        <div class="edu-card">
+          <div class="school">南开大学</div>
+          <div class="major">微电子科学系 · 微电子学</div>
+          <div class="deg">学士（1999 – 2003）</div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <footer>
+    <p>&copy; 2026 吴非 · 简历最后更新：2026.11</p>
+  </footer>
+
+  <script>
+    // 深浅色主题：跟随系统 + 手动切换记忆
+    (function () {
+      var root = document.documentElement;
+      var btn = document.getElementById('theme-toggle');
+      var stored = null;
+      try { stored = localStorage.getItem('theme'); } catch (e) {}
+      var preferDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      apply(stored || (preferDark ? 'dark' : 'light'));
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function (e) {
+        try { if (!localStorage.getItem('theme')) apply(e.matches ? 'dark' : 'light'); } catch (err) {}
+      });
+      btn.addEventListener('click', function () {
+        var next = root.classList.contains('dark') ? 'light' : 'dark';
+        try { localStorage.setItem('theme', next); } catch (e) {}
+        apply(next);
+      });
+      function apply(mode) {
+        root.classList.toggle('dark', mode === 'dark');
+        btn.textContent = mode === 'dark' ? '☾' : '☀';
+      }
+    })();
+  </script>
+</body>
 </html>

@@ -1,5 +1,2 @@
-remote_theme: pages-themes/merlot@v0.2.0
-plugins:
-- jekyll-remote-theme # add this line to the plugins list if you already have one
-title: [Resume of Felix.Wu, 吴非个人简历]
-description: [Resume of Felix.Wu, 吴非个人简历]
+title: 吴非 Felix Wu · 个人简历
+description: 吴非（Felix Wu）个人简历 — 数字设计与验证，二十余年半导体行业经验。
