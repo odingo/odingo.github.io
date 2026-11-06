@@ -88,6 +88,20 @@
     }
     .lang-switch a.active { background: var(--accent); color: #fff; }
 
+    /* Language hint (follows browser language, no redirect) */
+    .lang-hint {
+      display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+      background: var(--accent-soft); border: 1px solid var(--line);
+      border-radius: 12px; padding: 9px 16px; margin-bottom: 18px; font-size: 13.5px;
+    }
+    .lang-hint a { color: var(--accent); font-weight: 600; text-decoration: none; }
+    .lang-hint a:hover { text-decoration: underline; }
+    .lang-hint .close {
+      margin-left: auto; background: none; border: none; cursor: pointer;
+      color: var(--muted); font-size: 18px; line-height: 1; padding: 0 2px; font-family: inherit;
+    }
+    .lang-hint .close:hover { color: var(--text); }
+
     /* 70 / 30 layout */
     .wrap { max-width: 1180px; margin: 0 auto; padding: 34px 24px 24px; }
     .layout {
@@ -328,6 +342,11 @@
   </nav>
 
   <div class="wrap">
+    <div class="lang-hint" id="lang-hint" hidden>
+      <span>本简历也提供中文版本。</span>
+      <a href="../" hreflang="zh-CN">查看中文版 →</a>
+      <button class="close" id="lang-hint-close" aria-label="Dismiss">&times;</button>
+    </div>
     <div class="layout">
 
       <!-- Sidebar: profile + skills -->
@@ -581,6 +600,18 @@
   <script>
     (function () {
       var root = document.documentElement;
+
+      // ---- Language hint: show the Chinese version link to Chinese browsers ----
+      var hint = document.getElementById('lang-hint');
+      var hintClose = document.getElementById('lang-hint-close');
+      try {
+        var navLang = (navigator.language || '').toLowerCase();
+        if (!sessionStorage.getItem('langHintOff') && navLang.indexOf('zh') === 0) hint.hidden = false;
+      } catch (e) {}
+      hintClose.addEventListener('click', function () {
+        hint.hidden = true;
+        try { sessionStorage.setItem('langHintOff', '1'); } catch (e) {}
+      });
 
       // ---- Theme ----
       var btn = document.getElementById('theme-toggle');
