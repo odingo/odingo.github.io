@@ -217,6 +217,29 @@
     .job li { margin-bottom: 6px; font-size: 14.5px; }
     .job li::marker { color: var(--accent); }
 
+    /* 经历分组：同一技术 VP 带队的连续三家 */
+    .sec-sub {
+      font-size: 13.5px; color: var(--muted); line-height: 1.65;
+      margin: -8px 0 20px; padding-left: 14px; border-left: 2px solid var(--accent);
+    }
+    .chapter {
+      position: relative; margin-bottom: 18px; padding: 15px 18px;
+      background: var(--accent-soft); border-radius: 10px;
+    }
+    .chapter::before {
+      content: ""; position: absolute; left: -26px; top: 17px;
+      width: 11px; height: 11px; border-radius: 2px;
+      background: var(--accent); transform: rotate(45deg);
+    }
+    .chapter .ch-range {
+      font-size: 12.5px; font-weight: 700; color: var(--accent);
+      letter-spacing: .03em;
+    }
+    .chapter .ch-title { font-size: 15.5px; font-weight: 700; margin-top: 3px; }
+    .chapter .ch-note { font-size: 13.5px; color: var(--muted); margin-top: 6px; line-height: 1.65; }
+    .job.grouped::before { width: 9px; height: 9px; left: -24.5px; top: 11px; border-width: 2px; }
+    .job.grouped .job-card { border-left: 3px solid var(--accent); }
+
     /* 教育 */
     .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
     .edu-card {
@@ -268,6 +291,7 @@
       .card, .job-card, .edu-card { box-shadow: none; border: 1px solid #ccc; }
       .timeline::before, .job::before { display: none; }
       .timeline { padding-left: 0; }
+      .chapter { background: none; border: 1px solid #ccc; }
       .wrap, footer { padding-left: 0; padding-right: 0; max-width: 100%; }
     }
   </style>
@@ -483,9 +507,16 @@
 
         <section id="experience">
           <h2 class="sec-title">工作经历</h2>
+          <p class="sec-sub">2022 年起随同一技术 VP 连续组建三家芯片公司（三家公司投资方存在重叠），每段均从零搭建验证体系并组建团队。</p>
           <div class="timeline">
 
-            <div class="job">
+            <div class="chapter">
+              <div class="ch-range">2022 – 至今</div>
+              <div class="ch-title">同一技术 VP 带队 · 连续三次组建</div>
+              <p class="ch-note">跟随同一位技术 VP 先后加入三个车载芯片项目：激光雷达 → 毫米波雷达 → 车载音频总线。公司不同，团队与技术路线一脉相承。</p>
+            </div>
+
+            <div class="job grouped">
               <div class="job-card">
                 <div class="job-head">
                   <span class="company">创晟半导体</span>
@@ -501,7 +532,7 @@
               </div>
             </div>
 
-            <div class="job">
+            <div class="job grouped">
               <div class="job-card">
                 <div class="job-head">
                   <span class="company">牧野微电子</span>
@@ -521,7 +552,7 @@
               </div>
             </div>
 
-            <div class="job">
+            <div class="job grouped">
               <div class="job-card">
                 <div class="job-head">
                   <span class="company">一径科技</span>

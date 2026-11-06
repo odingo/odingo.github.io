@@ -217,6 +217,29 @@
     .job li { margin-bottom: 6px; font-size: 14.5px; }
     .job li::marker { color: var(--accent); }
 
+    /* Grouped experience: three ventures, one technical VP */
+    .sec-sub {
+      font-size: 13.5px; color: var(--muted); line-height: 1.65;
+      margin: -8px 0 20px; padding-left: 14px; border-left: 2px solid var(--accent);
+    }
+    .chapter {
+      position: relative; margin-bottom: 18px; padding: 15px 18px;
+      background: var(--accent-soft); border-radius: 10px;
+    }
+    .chapter::before {
+      content: ""; position: absolute; left: -26px; top: 17px;
+      width: 11px; height: 11px; border-radius: 2px;
+      background: var(--accent); transform: rotate(45deg);
+    }
+    .chapter .ch-range {
+      font-size: 12.5px; font-weight: 700; color: var(--accent);
+      letter-spacing: .03em;
+    }
+    .chapter .ch-title { font-size: 15.5px; font-weight: 700; margin-top: 3px; }
+    .chapter .ch-note { font-size: 13.5px; color: var(--muted); margin-top: 6px; line-height: 1.65; }
+    .job.grouped::before { width: 9px; height: 9px; left: -24.5px; top: 11px; border-width: 2px; }
+    .job.grouped .job-card { border-left: 3px solid var(--accent); }
+
     /* Education */
     .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
     .edu-card {
@@ -266,6 +289,7 @@
       .card, .job-card, .edu-card { box-shadow: none; border: 1px solid #ccc; }
       .timeline::before, .job::before { display: none; }
       .timeline { padding-left: 0; }
+      .chapter { background: none; border: 1px solid #ccc; }
       .wrap, footer { padding-left: 0; padding-right: 0; max-width: 100%; }
     }
   </style>
@@ -426,9 +450,16 @@
 
         <section id="experience">
           <h2 class="sec-title">Experience</h2>
+          <p class="sec-sub">Since 2022 I have built three chip companies with the same technical VP — three ventures with overlapping investors — standing up verification from zero and hiring the team each time.</p>
           <div class="timeline">
 
-            <div class="job">
+            <div class="chapter">
+              <div class="ch-range">2022 – Present</div>
+              <div class="ch-title">Same technical VP · Three ventures, built in sequence</div>
+              <p class="ch-note">Three automotive chip projects led by the same technical VP: LiDAR, then mmWave radar, then automotive audio bus. Different companies; one continuous team and one continuous technical direction.</p>
+            </div>
+
+            <div class="job grouped">
               <div class="job-card">
                 <div class="job-head">
                   <span class="company">Transcend Semiconductor</span>
@@ -444,7 +475,7 @@
               </div>
             </div>
 
-            <div class="job">
+            <div class="job grouped">
               <div class="job-card">
                 <div class="job-head">
                   <span class="company">Muye Microelectronics</span>
@@ -464,7 +495,7 @@
               </div>
             </div>
 
-            <div class="job">
+            <div class="job grouped">
               <div class="job-card">
                 <div class="job-head">
                   <span class="company">Zvision Technology</span>
