@@ -237,6 +237,13 @@
     }
     .chapter .ch-title { font-size: 15.5px; font-weight: 700; margin-top: 3px; }
     .chapter .ch-note { font-size: 13.5px; color: var(--muted); margin-top: 6px; line-height: 1.65; }
+    .ch-shared { margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(127,127,127,.22); }
+    .ch-shared .label {
+      font-size: 11.5px; font-weight: 700; color: var(--accent); letter-spacing: .06em;
+    }
+    .ch-shared ul { margin: 7px 0 0 17px; }
+    .ch-shared li { font-size: 13.5px; line-height: 1.6; margin-bottom: 4px; color: var(--text); }
+    .ch-shared li::marker { color: var(--accent); }
     .job.grouped::before { width: 9px; height: 9px; left: -24.5px; top: 11px; border-width: 2px; }
     .job.grouped .job-card { border-left: 3px solid var(--accent); }
 
@@ -507,13 +514,23 @@
 
         <section id="experience">
           <h2 class="sec-title">工作经历</h2>
-          <p class="sec-sub">2022 年起随同一技术 VP 连续组建三家芯片公司（三家公司投资方存在重叠），每段均从零搭建验证体系并组建团队。</p>
+          <p class="sec-sub">2022 年起随同一技术 VP 连续组建三家芯片公司（投资方存在重叠）：同团队、同技术路线，共性工作统一列出，各段只保留差异。</p>
           <div class="timeline">
 
             <div class="chapter">
               <div class="ch-range">2022 – 至今</div>
-              <div class="ch-title">同一技术 VP 带队 · 连续三次组建</div>
-              <p class="ch-note">跟随同一位技术 VP 先后加入三个车载芯片项目：激光雷达 → 毫米波雷达 → 车载音频总线。公司不同，团队与技术路线一脉相承。</p>
+              <div class="ch-title">同一核心技术团队 · 连续三个车规芯片项目</div>
+              <p class="ch-note">随同一位技术 VP 先后组建三家芯片公司（投资方存在重叠），团队与技术路线一脉相承，三个车规项目首尾相接。</p>
+              <div class="ch-shared">
+                <span class="label">三段共通 · 团队层面</span>
+                <ul>
+                  <li>三次从零搭建 SoC 仿真验证体系：UVM/SystemVerilog 环境、FPGA 仿真、AMS 混合仿真，分别落地于激光雷达、毫米波雷达、车载音频总线三个车规项目</li>
+                  <li>统一开发仿真、回归、寄存器维护等基础 Python 工具链，三家沿用同一套流程与脚本库</li>
+                  <li>VIP 开发与评估、MIPI VIP 集成；EDA 工具选型；Git 仓库与生产力工具维护</li>
+                  <li>招聘面试，从零搭建并管理验证团队，多 site 协作；向算法、软件等部门推广验证方法学</li>
+                  <li>参与设计团队管理，承担部分数字模块设计</li>
+                </ul>
+              </div>
             </div>
 
             <div class="job grouped">
@@ -525,9 +542,8 @@
                 </div>
                 <div class="job-title">Digital Design Manager</div>
                 <ul>
-                  <li>从 0 搭建仿真验证环境</li>
-                  <li>开发所有仿真脚本、回归脚本、寄存器维护开发脚本等基础 Python 工具</li>
-                  <li>在车载音频总线项目中负责部分设计工作（如 PDM）以及核心模块的验证工作</li>
+                  <li>车载音频总线项目：负责 PDM 通路等部分设计工作，并承担核心模块的验证</li>
+                  <li>以设计者身份参与同一批模块的验证交付，规格与实现上的问题在早期就暴露</li>
                 </ul>
               </div>
             </div>
@@ -541,13 +557,9 @@
                 </div>
                 <div class="job-title">Senior Digital Verification Manager</div>
                 <ul>
-                  <li>从 0 搭建基于 UVM 的 SoC 仿真验证环境，开发整合 FPGA 仿真和 AMS 混合仿真流程</li>
-                  <li>开发所有仿真脚本、回归脚本、寄存器维护开发脚本等基础 Python 工具</li>
-                  <li>VIP 开发与评估、MIPI VIP 集成，及其他生产力工具维护开发</li>
-                  <li>FuSa 相关 EDA 工具评估，功能安全机制验证流程建设</li>
-                  <li>在车载毫米波雷达项目中管理和参与 Matlab 建模、数字模块验证与系统级验证</li>
-                  <li>招聘面试并搭建验证团队，管理多 site 团队成员</li>
-                  <li>参与管理设计团队，设计部分数字模块</li>
+                  <li>车载毫米波雷达项目：管理与参与 Matlab 建模、数字模块验证与系统级验证</li>
+                  <li>把 FPGA 仿真与 AMS 混合仿真整合成一条流程，一次回归即可覆盖数模边界</li>
+                  <li>完成 FuSa 相关 EDA 工具评估，建立功能安全机制的验证流程</li>
                 </ul>
               </div>
             </div>
@@ -561,12 +573,8 @@
                 </div>
                 <div class="job-title">Senior Digital Verification Manager</div>
                 <ul>
-                  <li>从 0 搭建基于 UVM 的 SoC（RISC-V）仿真验证环境，FPGA 仿真环境开发维护</li>
-                  <li>开发所有仿真脚本、回归脚本、寄存器维护开发脚本等基础 Python 工具</li>
-                  <li>VIP 开发与评估，EDA 工具评估，Git 数据库维护管理</li>
-                  <li>在车载激光雷达项目中管理和参与模块级验证与系统级验证</li>
-                  <li>招聘面试、搭建并管理本地验证团队，向算法、软件等部门推广验证方法学</li>
-                  <li>参与部分设计工作</li>
+                  <li>车载激光雷达项目（RISC-V SoC）：管理与参与模块级验证与系统级验证</li>
+                  <li>负责 Git 数据库维护管理，并把验证方法学推广到算法、软件等下游部门</li>
                 </ul>
               </div>
             </div>

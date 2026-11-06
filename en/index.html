@@ -237,6 +237,13 @@
     }
     .chapter .ch-title { font-size: 15.5px; font-weight: 700; margin-top: 3px; }
     .chapter .ch-note { font-size: 13.5px; color: var(--muted); margin-top: 6px; line-height: 1.65; }
+    .ch-shared { margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(127,127,127,.22); }
+    .ch-shared .label {
+      font-size: 11.5px; font-weight: 700; color: var(--accent); letter-spacing: .06em;
+    }
+    .ch-shared ul { margin: 7px 0 0 17px; }
+    .ch-shared li { font-size: 13.5px; line-height: 1.6; margin-bottom: 4px; color: var(--text); }
+    .ch-shared li::marker { color: var(--accent); }
     .job.grouped::before { width: 9px; height: 9px; left: -24.5px; top: 11px; border-width: 2px; }
     .job.grouped .job-card { border-left: 3px solid var(--accent); }
 
@@ -450,13 +457,23 @@
 
         <section id="experience">
           <h2 class="sec-title">Experience</h2>
-          <p class="sec-sub">Since 2022 I have built three chip companies with the same technical VP — three ventures with overlapping investors — standing up verification from zero and hiring the team each time.</p>
+          <p class="sec-sub">Since 2022 I have built three chip companies with the same technical VP (overlapping investors): one team, one technical direction. Work shared across all three is stated once; each entry keeps only what differed.</p>
           <div class="timeline">
 
             <div class="chapter">
               <div class="ch-range">2022 – Present</div>
-              <div class="ch-title">Same technical VP · Three ventures, built in sequence</div>
-              <p class="ch-note">Three automotive chip projects led by the same technical VP: LiDAR, then mmWave radar, then automotive audio bus. Different companies; one continuous team and one continuous technical direction.</p>
+              <div class="ch-title">One core team · Three automotive chip programmes</div>
+              <p class="ch-note">Three ventures built with the same technical VP (overlapping investors) — one continuous team and one continuous technical direction, three automotive programmes back to back.</p>
+              <div class="ch-shared">
+                <span class="label">Common to all three · team level</span>
+                <ul>
+                  <li>Built SoC verification from zero three times — UVM/SystemVerilog environments, FPGA simulation, AMS mixed-signal co-simulation — for LiDAR, mmWave radar and automotive audio bus programmes.</li>
+                  <li>Built one shared Python toolchain for simulation, regression and register maintenance; the same flows and script library carried across all three companies.</li>
+                  <li>VIP development and evaluation, MIPI VIP integration; EDA tool selection; Git repositories and productivity tooling.</li>
+                  <li>Hiring and team building from zero, multi-site collaboration, and taking the verification methodology into algorithm and software teams.</li>
+                  <li>Co-managed the design team and owned several digital blocks.</li>
+                </ul>
+              </div>
             </div>
 
             <div class="job grouped">
@@ -468,9 +485,8 @@
                 </div>
                 <div class="job-title">Digital Design Manager</div>
                 <ul>
-                  <li>Built the simulation verification environment from scratch.</li>
-                  <li>Developed all simulation, regression and register-maintenance scripts plus base Python tooling.</li>
-                  <li>Owned part of the design work (e.g. PDM) and core module verification in an automotive audio bus project.</li>
+                  <li>Automotive audio bus programme: owned part of the design work (PDM path and others) and verification of the core modules.</li>
+                  <li>Acted as designer and verifier on the same blocks, so specification and implementation gaps surfaced early.</li>
                 </ul>
               </div>
             </div>
@@ -484,13 +500,9 @@
                 </div>
                 <div class="job-title">Senior Digital Verification Manager</div>
                 <ul>
-                  <li>Built a UVM-based SoC simulation environment from scratch; integrated FPGA simulation with the AMS mixed-signal flow.</li>
-                  <li>Developed all simulation, regression and register-maintenance scripts plus base Python tooling.</li>
-                  <li>VIP development and evaluation, MIPI VIP integration, and maintenance of other productivity tools.</li>
-                  <li>Evaluated FuSa-related EDA tools and established the verification flow for functional safety mechanisms.</li>
-                  <li>Managed and participated in Matlab modelling, digital module verification and system-level verification of an automotive millimeter-wave radar project.</li>
-                  <li>Interviewed candidates and built the verification team; managed members across multiple sites.</li>
-                  <li>Helped manage the design team and designed several digital modules.</li>
+                  <li>Automotive mmWave radar programme: managed and contributed to Matlab modelling, digital block and system-level verification.</li>
+                  <li>Merged FPGA simulation and AMS mixed-signal simulation into a single flow, so one regression run covered the analog-digital boundary.</li>
+                  <li>Evaluated FuSa EDA tooling and established the verification flow for functional safety mechanisms.</li>
                 </ul>
               </div>
             </div>
@@ -504,12 +516,8 @@
                 </div>
                 <div class="job-title">Senior Digital Verification Manager</div>
                 <ul>
-                  <li>Built a UVM-based SoC (RISC-V) simulation environment from scratch; developed and maintained the FPGA simulation environment.</li>
-                  <li>Developed all simulation, regression and register-maintenance scripts plus base Python tooling.</li>
-                  <li>VIP development and evaluation, EDA tool evaluation, and Git repository maintenance.</li>
-                  <li>Managed and participated in module-level and system-level verification of an automotive LiDAR project.</li>
-                  <li>Interviewed candidates, built and managed the local verification team, and promoted verification methodology to algorithm and software teams.</li>
-                  <li>Contributed to some design work.</li>
+                  <li>Automotive LiDAR programme (RISC-V SoC): managed and contributed to block-level and system-level verification.</li>
+                  <li>Owned Git repository management and took the verification methodology into downstream teams (algorithm, software).</li>
                 </ul>
               </div>
             </div>
