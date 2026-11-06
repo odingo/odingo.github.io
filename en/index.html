@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Resume of Felix Wu (吴非) — Digital Design Manager and senior digital verification engineer in Beijing, 20+ years in the semiconductor industry.">
+  <title>Felix Wu · Resume — Digital Design &amp; Verification</title>
+  <link rel="canonical" href="https://odingo.github.io/en/">
+  <link rel="alternate" hreflang="zh-CN" href="https://odingo.github.io/">
+  <link rel="alternate" hreflang="en" href="https://odingo.github.io/en/">
+  <link rel="alternate" hreflang="x-default" href="https://odingo.github.io/en/">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="author" content="Felix Wu 吴非">
+  <meta name="keywords" content="Felix Wu, resume, digital verification, digital design, UVM, SoC verification, ASIC, semiconductor, Beijing, Analog Devices, 吴非">
+  <meta property="og:type" content="profile">
+  <meta property="og:site_name" content="Felix Wu">
+  <meta property="og:title" content="Felix Wu · Digital Design Manager / Senior Digital Verification Expert">
+  <meta property="og:description" content="20+ years in semiconductors: UVM SoC verification environments, FPGA and AMS mixed-signal simulation, functional safety, and team leadership across sites.">
+  <meta property="og:url" content="https://odingo.github.io/en/">
+  <meta property="og:image" content="https://odingo.github.io/og-image.png">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="zh_CN">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Felix Wu · Digital Design Manager / Senior Digital Verification Expert">
+  <meta name="twitter:description" content="20+ years in semiconductors: UVM SoC verification, FPGA and AMS mixed-signal simulation, functional safety, and team leadership.">
+  <meta name="twitter:image" content="https://odingo.github.io/og-image.png">
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <script>if (new URLSearchParams(location.search).get('lang') === 'zh') location.replace('../');</script>
+  <style>
+    :root {
+      --bg: #f4f6f8;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --line: #e5e7eb;
+      --accent: #1d4ed8;
+      --accent-soft: #eff4ff;
+      --tag-bg: #eef2f7;
+      --shadow: 0 1px 3px rgba(16, 24, 40, .08), 0 8px 24px rgba(16, 24, 40, .06);
+    }
+    html.dark {
+      --bg: #0f1520;
+      --card: #171e2b;
+      --text: #e6e9ef;
+      --muted: #98a2b3;
+      --line: #2a3345;
+      --accent: #7aa2ff;
+      --accent-soft: #1c2740;
+      --tag-bg: #212b3d;
+      --shadow: 0 1px 3px rgba(0, 0, 0, .4), 0 10px 30px rgba(0, 0, 0, .25);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    [hidden] { display: none !important; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+      transition: background .25s, color .25s;
+    }
+
+    /* Top navigation */
+    .nav {
+      position: sticky; top: 0; z-index: 50;
+      backdrop-filter: blur(10px);
+      background: color-mix(in srgb, var(--bg) 82%, transparent);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-inner {
+      max-width: 1180px; margin: 0 auto; padding: 12px 24px;
+      display: flex; align-items: center; gap: 18px; flex-wrap: wrap;
+    }
+    .nav-name { font-weight: 700; letter-spacing: .5px; }
+    .nav-name a { color: var(--text); text-decoration: none; }
+    .nav-links { display: flex; gap: 16px; margin-left: auto; align-items: center; flex-wrap: wrap; }
+    .nav-links a, .theme-btn {
+      color: var(--muted); text-decoration: none; font-size: 14px;
+      background: none; border: none; cursor: pointer; font-family: inherit;
+      transition: color .2s;
+    }
+    .nav-links a:hover, .theme-btn:hover { color: var(--accent); }
+    .lang-switch { display: flex; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+    .lang-switch a {
+      font-size: 12.5px; padding: 2px 9px; color: var(--muted);
+      text-decoration: none; transition: background .2s, color .2s;
+    }
+    .lang-switch a.active { background: var(--accent); color: #fff; }
+
+    /* 70 / 30 layout */
+    .wrap { max-width: 1180px; margin: 0 auto; padding: 34px 24px 24px; }
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 352px;
+      gap: 26px;
+      align-items: start;
+    }
+    .layout > .main { grid-column: 1; grid-row: 1; min-width: 0; }
+    .layout > .side { grid-column: 2; grid-row: 1; }
+    .side { display: flex; flex-direction: column; gap: 20px; }
+
+    .card {
+      background: var(--card); border: 1px solid var(--line);
+      border-radius: 16px; box-shadow: var(--shadow);
+    }
+
+    /* Profile card */
+    .hero { padding: 28px 26px 24px; }
+    .hero-top { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+    .hero h1 { font-size: 28px; letter-spacing: .5px; }
+    .hero .en { color: var(--muted); font-size: 15px; font-weight: 600; }
+    .hero .role { margin-top: 6px; color: var(--accent); font-weight: 600; font-size: 14.5px; line-height: 1.5; }
+    .hero .meta { margin-top: 12px; color: var(--muted); font-size: 13.5px; display: flex; gap: 4px 14px; flex-wrap: wrap; }
+    .hero .meta span::before { content: "·"; margin-right: 6px; color: var(--line); }
+    .hero .meta span:first-child::before { content: none; margin: 0; }
+    .hero .desc { margin-top: 14px; font-size: 14px; line-height: 1.7; }
+
+    /* Contact (obfuscated on page, click to copy the real value) */
+    .contact { margin-top: 16px; display: flex; flex-direction: column; gap: 8px; }
+    .c-item {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 7px 12px; border: 1px solid var(--line); border-radius: 10px;
+      background: var(--bg); color: var(--text); text-decoration: none; cursor: pointer;
+      font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 12.5px;
+      transition: border-color .2s, color .2s;
+    }
+    .c-item:hover { border-color: var(--accent); color: var(--accent); }
+    .c-item .k { color: var(--muted); font-size: 10.5px; letter-spacing: .6px; text-transform: uppercase; min-width: 38px; }
+    .c-item b { color: var(--accent); font-weight: 700; }
+    .contact .hint { color: var(--muted); font-size: 11.5px; margin-top: 2px; }
+
+    .hero-actions { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 9px; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 7px;
+      padding: 9px 16px; border-radius: 10px; font-size: 14px; font-weight: 600;
+      text-decoration: none; transition: transform .15s, box-shadow .15s, background .2s, color .2s;
+      font-family: inherit; cursor: pointer;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary {
+      flex: 1 1 100%; background: var(--accent); color: #fff; border: 1px solid transparent;
+      box-shadow: 0 4px 14px color-mix(in srgb, var(--accent) 35%, transparent);
+    }
+    .btn-outline { flex: 1; background: var(--card); color: var(--text); border: 1px solid var(--line); }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* WeChat QR */
+    .qr-panel {
+      margin-top: 14px; padding: 14px; border: 1px dashed var(--line); border-radius: 12px;
+      background: var(--bg); display: flex; flex-direction: column; gap: 10px; align-items: flex-start;
+    }
+    .qr-panel img { width: 100%; max-width: 200px; height: auto; border-radius: 8px; background: #fff; padding: 6px; }
+    .qr-panel .qr-tip { font-size: 12.5px; color: var(--muted); }
+
+    /* Skills */
+    .side-card { padding: 22px 24px 24px; }
+    .side-title {
+      display: flex; align-items: center; gap: 9px;
+      font-size: 16px; font-weight: 700; margin-bottom: 14px; letter-spacing: .5px;
+    }
+    .side-title::before { content: ""; width: 3px; height: 16px; border-radius: 2px; background: var(--accent); }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag {
+      background: var(--tag-bg); color: var(--text); border: 1px solid var(--line);
+      padding: 4px 11px; border-radius: 999px; font-size: 12.5px; line-height: 1.6;
+    }
+
+    /* Main column */
+    .main section + section { margin-top: 40px; }
+    .sec-title {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 20px; font-weight: 700; margin-bottom: 18px; letter-spacing: .5px;
+    }
+    .sec-title::before { content: ""; width: 4px; height: 20px; border-radius: 2px; background: var(--accent); }
+
+    /* Timeline */
+    .timeline { position: relative; padding-left: 26px; }
+    .timeline::before {
+      content: ""; position: absolute; left: 7px; top: 8px; bottom: 8px;
+      width: 2px; background: var(--line); border-radius: 1px;
+    }
+    .job { position: relative; margin-bottom: 22px; }
+    .job:last-child { margin-bottom: 0; }
+    .job::before {
+      content: ""; position: absolute; left: -26px; top: 9px;
+      width: 12px; height: 12px; border-radius: 50%;
+      background: var(--bg); border: 3px solid var(--accent);
+    }
+    .job-card {
+      background: var(--card); border: 1px solid var(--line); border-radius: 12px;
+      box-shadow: var(--shadow); padding: 22px 26px;
+    }
+    .job-head { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+    .job-head .company { font-size: 17.5px; font-weight: 700; }
+    .job-head .loc { font-style: normal; color: var(--muted); font-weight: 600; font-size: 14.5px; }
+    .job-head .time {
+      margin-left: auto; color: var(--accent); font-size: 13.5px; font-weight: 600;
+      background: var(--accent-soft); padding: 2px 12px; border-radius: 999px; white-space: nowrap;
+    }
+    .job-title { color: var(--muted); font-size: 14.5px; margin-top: 2px; }
+    .job ul { margin: 12px 0 0 18px; }
+    .job li { margin-bottom: 6px; font-size: 14.5px; }
+    .job li::marker { color: var(--accent); }
+
+    /* Education */
+    .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .edu-card {
+      background: var(--card); border: 1px solid var(--line); border-radius: 12px;
+      box-shadow: var(--shadow); padding: 20px 24px;
+    }
+    .edu-card .school { font-weight: 700; font-size: 16.5px; }
+    .edu-card .major { color: var(--muted); font-size: 14px; margin-top: 4px; }
+    .edu-card .deg { color: var(--accent); font-size: 13.5px; font-weight: 600; margin-top: 8px; }
+
+    /* Footer */
+    footer {
+      max-width: 1180px; margin: 46px auto 0; border-top: 1px solid var(--line);
+      padding: 22px 24px 30px; text-align: center; color: var(--muted); font-size: 13px;
+    }
+
+    /* Copy toast */
+    .toast {
+      position: fixed; left: 50%; bottom: 30px; transform: translate(-50%, 14px);
+      background: #111827; color: #fff; padding: 9px 18px; border-radius: 10px;
+      font-size: 13.5px; opacity: 0; pointer-events: none; transition: opacity .25s, transform .25s; z-index: 99;
+    }
+    .toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+    @media (max-width: 900px) {
+      .layout { grid-template-columns: 1fr; gap: 20px; }
+      .layout > .main, .layout > .side { grid-column: auto; grid-row: auto; }
+      .contact { flex-direction: row; flex-wrap: wrap; }
+      .contact .hint { flex: 1 1 100%; }
+      .edu-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      .wrap { padding: 24px 14px; }
+      .nav-inner { padding: 10px 14px; }
+      .hero { padding: 22px 20px; }
+      .hero h1 { font-size: 25px; }
+      .side-card { padding: 20px; }
+      .job-card { padding: 18px; }
+      .job-head .time { margin-left: 0; }
+    }
+
+    @media print {
+      body { background: #fff; color: #000; }
+      .nav, .hero-actions, .qr-panel, .contact .hint, .toast { display: none; }
+      .layout { display: block; }
+      .side, .main { width: 100%; }
+      .card, .job-card, .edu-card { box-shadow: none; border: 1px solid #ccc; }
+      .timeline::before, .job::before { display: none; }
+      .timeline { padding-left: 0; }
+      .wrap, footer { padding-left: 0; padding-right: 0; max-width: 100%; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ProfilePage",
+        "@id": "https://odingo.github.io/en/#page",
+        "url": "https://odingo.github.io/en/",
+        "name": "Felix Wu · Resume",
+        "inLanguage": "en",
+        "dateModified": "2026-11-06",
+        "isPartOf": { "@id": "https://odingo.github.io/#website" },
+        "mainEntity": { "@id": "https://odingo.github.io/en/#person" }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://odingo.github.io/en/#person",
+        "name": "Felix Wu",
+        "alternateName": ["吴非"],
+        "givenName": "Felix",
+        "familyName": "Wu",
+        "jobTitle": "Digital Design Manager · Senior Digital Verification Expert",
+        "description": "20+ years in the semiconductor industry across digital verification and digital design. Built UVM-based SoC simulation environments from scratch, developed Python-based simulation, regression and register-maintenance tooling, and worked on FPGA and AMS mixed-signal simulation, functional safety verification, low-power verification, formal verification and hardware acceleration. Experienced in managing teams across sites and countries; previously at Analog Devices, Vimicro, Greenliant, Zvision and Muye Microelectronics.",
+        "url": "https://odingo.github.io/en/",
+        "image": "https://odingo.github.io/og-image.png",
+        "gender": "Male",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Beijing",
+          "addressCountry": "CN"
+        },
+        "worksFor": { "@type": "Organization", "name": "Transcend Semiconductor" },
+        "alumniOf": {
+          "@type": "CollegeOrUniversity",
+          "name": "Nankai University",
+          "department": "Department of Microelectronics"
+        },
+        "knowsLanguage": ["en", "zh-CN"],
+        "knowsAbout": [
+          "Digital Verification", "UVM", "OVM", "VMM", "SystemVerilog", "Verilog",
+          "SoC Verification", "FPGA Simulation", "AMS Mixed-Signal Simulation",
+          "Functional Safety (FuSa)", "Low-Power Verification",
+          "Formal Verification (JasperGold)", "Palladium Hardware Acceleration",
+          "AMBA AXI / AHB", "MIPI", "I2S", "I2C", "Ethernet", "RISC-V", "ARM",
+          "Python", "C/C++", "Matlab", "Git", "Automotive Audio Bus (PDM)",
+          "Automotive Radar", "Automotive LiDAR"
+        ],
+        "sameAs": ["https://www.linkedin.com/in/xterm/"]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <span class="nav-name"><a href="../">Felix Wu 吴非</a></span>
+      <div class="nav-links">
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
+        <div class="lang-switch">
+          <a href="../" hreflang="zh-CN">中</a>
+          <a href="./" class="active" hreflang="en">EN</a>
+        </div>
+        <button class="theme-btn" id="theme-toggle" aria-label="Toggle theme">◐</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="wrap">
+    <div class="layout">
+
+      <!-- Sidebar: profile + skills -->
+      <aside class="side">
+
+        <header class="card hero" id="profile">
+          <div class="hero-top">
+            <h1>Felix Wu</h1>
+            <span class="en">吴非</span>
+          </div>
+          <div class="role">Digital Design Manager · Senior Digital Verification Expert</div>
+          <div class="meta">
+            <span>Beijing</span>
+            <span>1982.06</span>
+            <span>20+ years in semiconductors</span>
+          </div>
+
+          <div class="contact">
+            <a class="c-item" id="contact-mail" title="Click to copy">
+              <span class="k">Email</span> xeroncn<b>#</b>hotmail.com
+            </a>
+            <a class="c-item" id="contact-tel" title="Click to copy">
+              <span class="k">Tel</span> +86 l58OlOlO38O
+            </a>
+            <span class="hint"># means @ · click to copy the real address</span>
+          </div>
+
+          <p class="desc">
+            Long-standing digital verification experience combined with hands-on digital design work,
+            plus a background in chip testing and chip-related software. Familiar with multiple
+            verification methodologies, scripting languages and programming approaches, with
+            cross-region and cross-country team management experience. Have worked on both
+            full-digital and mixed-signal chips, across consumer and industrial product projects.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="../resume.pdf" download="Felix-Wu-Resume-2026.11.pdf">⬇ Download Resume (PDF)</a>
+            <a class="btn btn-outline" href="https://www.linkedin.com/in/xterm/" target="_blank" rel="noopener">LinkedIn</a>
+            <button class="btn btn-outline" id="qr-toggle" hidden>WeChat</button>
+          </div>
+
+          <div class="qr-panel" id="qr-panel" hidden>
+            <img src="../wechat-qr.png" alt="WeChat QR code" id="qr-img">
+            <span class="qr-tip">Scan to add me on WeChat — please mention why you are reaching out.</span>
+          </div>
+        </header>
+
+        <section class="card side-card" id="skills">
+          <h2 class="side-title">Skills</h2>
+          <div class="tags">
+            <span class="tag">UVM / OVM / VMM</span>
+            <span class="tag">SystemVerilog</span>
+            <span class="tag">Verilog Digital Design</span>
+            <span class="tag">Python Tooling</span>
+            <span class="tag">C / C++</span>
+            <span class="tag">Matlab Modeling</span>
+            <span class="tag">FPGA Simulation</span>
+            <span class="tag">AMS Mixed-Signal Simulation</span>
+            <span class="tag">Formal (JasperGold)</span>
+            <span class="tag">Palladium Acceleration</span>
+            <span class="tag">Functional Safety (FuSa)</span>
+            <span class="tag">Low-Power Verification</span>
+            <span class="tag">AMBA AXI / AHB</span>
+            <span class="tag">MIPI / I2S / I2C</span>
+            <span class="tag">Ethernet 10M/100M/1000M</span>
+            <span class="tag">RISC-V / ARM</span>
+            <span class="tag">Git / Perforce</span>
+            <span class="tag">Jira / Confluence</span>
+            <span class="tag">Team &amp; Project Management</span>
+          </div>
+        </section>
+
+      </aside>
+
+      <!-- Main column: experience + education -->
+      <main class="main">
+
+        <section id="experience">
+          <h2 class="sec-title">Experience</h2>
+          <div class="timeline">
+
+            <div class="job">
+              <div class="job-card">
+                <div class="job-head">
+                  <span class="company">Transcend Semiconductor</span>
+                  <span class="loc">Beijing</span>
+                  <span class="time">2025 – Present</span>
+                </div>
+                <div class="job-title">Digital Design Manager</div>
+                <ul>
+                  <li>Built the simulation verification environment from scratch.</li>
+                  <li>Developed all simulation, regression and register-maintenance scripts plus base Python tooling.</li>
+                  <li>Owned part of the design work (e.g. PDM) and core module verification in an automotive audio bus project.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="job">
+              <div class="job-card">
+                <div class="job-head">
+                  <span class="company">Muye Microelectronics</span>
+                  <span class="loc">Beijing</span>
+                  <span class="time">2023 – 2025</span>
+                </div>
+                <div class="job-title">Senior Digital Verification Manager</div>
+                <ul>
+                  <li>Built a UVM-based SoC simulation environment from scratch; integrated FPGA simulation with the AMS mixed-signal flow.</li>
+                  <li>Developed all simulation, regression and register-maintenance scripts plus base Python tooling.</li>
+                  <li>VIP development and evaluation, MIPI VIP integration, and maintenance of other productivity tools.</li>
+                  <li>Evaluated FuSa-related EDA tools and established the verification flow for functional safety mechanisms.</li>
+                  <li>Managed and participated in Matlab modelling, digital module verification and system-level verification of an automotive millimeter-wave radar project.</li>
+                  <li>Interviewed candidates and built the verification team; managed members across multiple sites.</li>
+                  <li>Helped manage the design team and designed several digital modules.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="job">
+              <div class="job-card">
+                <div class="job-head">
+                  <span class="company">Zvision Technology</span>
+                  <span class="loc">Beijing</span>
+                  <span class="time">2022 – 2023</span>
+                </div>
+                <div class="job-title">Senior Digital Verification Manager</div>
+                <ul>
+                  <li>Built a UVM-based SoC (RISC-V) simulation environment from scratch; developed and maintained the FPGA simulation environment.</li>
+                  <li>Developed all simulation, regression and register-maintenance scripts plus base Python tooling.</li>
+                  <li>VIP development and evaluation, EDA tool evaluation, and Git repository maintenance.</li>
+                  <li>Managed and participated in module-level and system-level verification of an automotive LiDAR project.</li>
+                  <li>Interviewed candidates, built and managed the local verification team, and promoted verification methodology to algorithm and software teams.</li>
+                  <li>Contributed to some design work.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="job">
+              <div class="job-card">
+                <div class="job-head">
+                  <span class="company">Analog Devices (ADI)</span>
+                  <span class="loc">Beijing</span>
+                  <span class="time">2015 – 2022</span>
+                </div>
+                <div class="job-title">Manager, Digital Verification Engineering</div>
+                <ul>
+                  <li>In a digital audio processing chip project, designed and integrated the audio subsystem and developed the project's first SoC verification environment (multi-processor, ARM and RISC-V), supporting PC-side simulation of FPGA platform code.</li>
+                  <li>Established and long-term owned the China division IP database — operation, maintenance and promotion — guiding multinational teams in IP design and verification.</li>
+                  <li>Acted as verification lead for multiple chips and IPs, managing a multinational verification team; products included energy metering and digital security algorithms (SHA, AES, etc.).</li>
+                  <li>Created a C/C++-based platform with C models of the hardware to speed up firmware verification of a DSP chip; it was reused across later chips in that product family.</li>
+                  <li>Experienced with the Palladium hardware accelerator, used it to improve verification on a project with significant results; familiar with formal tools such as JasperGold, used in multiple projects.</li>
+                  <li>Contributed to optical communication, battery power management and other projects, covering module-level verification, system-level verification, post-simulation and script development.</li>
+                  <li>Published papers and presented at the company's global and China technical conferences; took part in resume screening and campus/social recruitment interviews.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="job">
+              <div class="job-card">
+                <div class="job-head">
+                  <span class="company">Greenliant Systems</span>
+                  <span class="loc">Beijing</span>
+                  <span class="time">2014 – 2015</span>
+                </div>
+                <div class="job-title">Lead, Staff Digital Verification Engineer</div>
+                <ul>
+                  <li>Developed and maintained simulation verification scripts.</li>
+                  <li>Owned DMA module-level verification for several enterprise SSD controller chips using UVM.</li>
+                  <li>Verification lead for an SSD controller chip project.</li>
+                  <li>Participated in recruitment interviews.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="job">
+              <div class="job-card">
+                <div class="job-head">
+                  <span class="company">Vimicro</span>
+                  <span class="loc">Beijing</span>
+                  <span class="time">2010 – 2014</span>
+                </div>
+                <div class="job-title">Senior Digital Verification Engineer</div>
+                <ul>
+                  <li>Independently responsible for digital verification of the Ethernet subsystem of an AP chip and several sub-products; familiar with 10M/100M/1000M Ethernet; limited involvement in USB/PCIe subsystem verification.</li>
+                  <li>Contributed to and led low-power verification of a chip project; results published at the Synopsys Users Group (SNUG China).</li>
+                  <li>Also worked on algorithm module verification (noise reduction, etc.) in an ISP chip, audio bus (I2S) protocol verification in a mixed-signal chip, and AMBA AXI bus functional and performance verification — covering module-level, system-level and post-simulation.</li>
+                  <li>The I2C module-level verification environment developed was used in new-hire training courses; used VMM methodology.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="job">
+              <div class="job-card">
+                <div class="job-head">
+                  <span class="company">Raycom Technology</span>
+                  <span class="loc">Beijing</span>
+                  <span class="time">2009 – 2010</span>
+                </div>
+                <div class="job-title">Junior Digital Verification Engineer</div>
+                <ul>
+                  <li>Timing analysis for an FPGA project, mainly with Synplify.</li>
+                  <li>Module-level verification in an optical communication project using OVM.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="job">
+              <div class="job-card">
+                <div class="job-head">
+                  <span class="company">TCMC Microelectronics</span>
+                  <span class="loc">Tianjin</span>
+                  <span class="time">2003 – 2006</span>
+                </div>
+                <div class="job-title">IC Test Engineer</div>
+                <ul>
+                  <li>Participated in analog chip testing, including PCB layout, functional and performance testing.</li>
+                  <li>Participated in testing of other mixed-signal chips and developed FPGA test code.</li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <section id="education">
+          <h2 class="sec-title">Education</h2>
+          <div class="edu-grid">
+            <div class="edu-card">
+              <div class="school">Nankai University</div>
+              <div class="major">Dept. of Microelectronics · Microelectronics &amp; Solid-State Electronics</div>
+              <div class="deg">M.S. in Integrated Circuit Design (2006 – 2009)</div>
+            </div>
+            <div class="edu-card">
+              <div class="school">Nankai University</div>
+              <div class="major">Dept. of Microelectronics · Microelectronics</div>
+              <div class="deg">B.S. (1999 – 2003)</div>
+            </div>
+          </div>
+        </section>
+
+      </main>
+
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 Felix Wu · Last updated: Nov 2026</p>
+  </footer>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+    (function () {
+      var root = document.documentElement;
+
+      // ---- Theme ----
+      var btn = document.getElementById('theme-toggle');
+      var stored = null;
+      try { stored = localStorage.getItem('theme'); } catch (e) {}
+      var preferDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      applyTheme(stored || (preferDark ? 'dark' : 'light'));
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function (e) {
+        try { if (!localStorage.getItem('theme')) applyTheme(e.matches ? 'dark' : 'light'); } catch (err) {}
+      });
+      btn.addEventListener('click', function () {
+        var next = root.classList.contains('dark') ? 'light' : 'dark';
+        try { localStorage.setItem('theme', next); } catch (e) {}
+        applyTheme(next);
+      });
+      function applyTheme(mode) {
+        root.classList.toggle('dark', mode === 'dark');
+        btn.textContent = mode === 'dark' ? '☾' : '☀';
+      }
+
+      // ---- Contact: obfuscated display, click to copy ----
+      var toast = document.getElementById('toast');
+      var toastTimer;
+      function showToast(msg) {
+        toast.textContent = msg;
+        toast.classList.add('show');
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(function () { toast.classList.remove('show'); }, 1800);
+      }
+      function copy(text, okMsg) {
+        var done = function () { showToast(okMsg); };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(done, function () { fallbackCopy(text); done(); });
+        } else {
+          fallbackCopy(text); done();
+        }
+      }
+      function fallbackCopy(text) {
+        var ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand('copy'); } catch (e) {}
+        document.body.removeChild(ta);
+      }
+      document.getElementById('contact-mail').addEventListener('click', function (e) {
+        e.preventDefault();
+        copy('xeroncn' + '@' + 'hotmail.com', 'Email copied');
+      });
+      document.getElementById('contact-tel').addEventListener('click', function (e) {
+        e.preventDefault();
+        copy('+8615801010380', 'Phone number copied');
+      });
+
+      // ---- WeChat QR: only shown when the image exists ----
+      var qrBtn = document.getElementById('qr-toggle');
+      var qrPanel = document.getElementById('qr-panel');
+      var test = new Image();
+      test.onload = function () { qrBtn.hidden = false; };
+      test.src = '../wechat-qr.png';
+      qrBtn.addEventListener('click', function () {
+        qrPanel.hidden = !qrPanel.hidden;
+      });
+    })();
+  </script>
+</body>
+</html>
