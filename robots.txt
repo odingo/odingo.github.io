@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# 主站与简历 PDF
+Sitemap: https://odingo.github.io/sitemap.xml
